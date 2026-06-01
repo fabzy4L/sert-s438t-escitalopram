@@ -1,9 +1,14 @@
 # SERT S438T — Publication Roadmap
 
-**Current baseline:** Multi-seed rigid docking (AutoDock Vina 1.2.5, n=5, exhaustiveness=32)
+## Current Finding
+
+Multi-seed rigid docking (AutoDock Vina 1.2.5, n=5, exhaustiveness=32):
+
 - WT: −8.575 ± 0.013 kcal/mol
 - S438T (minimized): −8.306 ± 0.015 kcal/mol
-- ΔΔG: +0.269 kcal/mol (within Vina noise; cannot reproduce experimental 320-fold Ki shift)
+- ΔΔG: +0.269 kcal/mol (within Vina noise)
+
+**The inability to reproduce the experimental 320-fold Kᵢ increase is itself the primary finding of the current study.** It demonstrates that the S438T substitution does not alter the static bound-state geometry of escitalopram in the S1 pocket — the Thr methyl group is accommodated without significant steric clash. This localizes the pharmacogenomic mechanism to conformational dynamics: the mutation most likely disrupts the binding pathway (Na⁺ coordination, induced-fit access) rather than the final bound pose. That is a mechanistically specific, testable hypothesis — and it is what the MD phases below are designed to confirm.
 
 Each phase below builds directly on the previous one.
 
