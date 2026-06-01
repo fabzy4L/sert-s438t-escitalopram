@@ -1,0 +1,26 @@
+# ChimeraX Script: S348T Local Energy Minimization
+# Targeting Transmembrane Helix 6 (TM6) residues 340-360
+
+# 1. Preparation: Add Hydrogens and Charges
+addh
+addcharge
+
+# 2. Select the Region of Interest
+select :340-360
+
+# 3. Define the Constraints
+# Freeze the rest of the protein to maintain global structural integrity
+freeze ~:340-360
+
+# 4. Energy Minimization (Steepest Descent + Conjugate Gradient)
+# 100 iterations of each to remove major clashes and refine side-chains
+minimize nsteps 100 cgsteps 100 stepsize 0.02 interval 10
+
+# 5. Post-Minimization Analysis
+# Calculate local RMSD to quantify structural relaxation
+select :348
+measure rmsd #1:340-360 to_structure #1:340-360
+
+# 6. Hydrogen Bond Analysis
+# Verify if the 102 structural H-bonds are preserved
+hbonds :340-360 intramodel true reveal true

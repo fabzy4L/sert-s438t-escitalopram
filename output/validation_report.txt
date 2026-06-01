@@ -1,0 +1,30 @@
+============================================================
+DOCKING BOX VALIDATION — 68P RE-DOCK
+============================================================
+
+[1] Aligning 5I71 to 5I6Z...
+
+[2] Extracting transformed 68P reference pose...
+
+[3] Box proximity check...
+  Crystal pose centroid (5I6Z frame): [ 32.64 183.45 141.9 ]
+  Box centre:                          [ 33.06 187.25 141.04]
+  Distance centroid -> box centre:     3.92 A
+  Centroid inside grid:                YES
+  Proximity result: PASS
+
+[4] Full re-dock (requires OpenBabel + Vina)...
+  Running Vina (C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\vina.exe)...
+  Best re-dock affinity: -8.313 kcal/mol
+  Computing heavy-atom RMSD vs crystal pose...
+  RMSD best pose vs crystal: 6.632 A  [FAIL (<2.0 A)]
+
+============================================================
+SUMMARY
+============================================================
+  Box proximity (centroid within grid): PASS
+  Re-dock RMSD < 2.0 A:                 FAIL  (6.632 A)
+  Re-dock best affinity:                -8.313 kcal/mol
+
+  Reference pose: C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\output\68P_crystal_reference.pdb
+  Full report:    C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\output\validation_report.txt

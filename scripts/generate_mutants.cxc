@@ -1,0 +1,47 @@
+# ChimeraX Script: Generate S348T and S348A mutants from the true 5I6Z chain A
+# Run this in ChimeraX: File > Open > select this script
+# Or from the ChimeraX command line: open generate_mutants.cxc
+#
+# Prerequisite: structural_audit.py must have been run first to produce
+#               data/structures/5i6z_A_true.pdb
+
+# 1. Load the true WT (chain A extracted from 5I6Z, ALA at position 348)
+open ../data/structures/5i6z_A_true.pdb
+
+# 2. Generate S348T mutant (ALA348 -> THR)
+#    swapaa uses the best-fit rotamer from the Dunbrack library by default
+swapaa thr #1:348
+save ../data/structures/5i6z_A_S348T_correct.pdb #1 format pdb
+
+# 3. Reload the WT and generate S348A mutant (ALA -> ALA is trivial,
+#    but if the biological WT is meant to be SER, do SER->ALA here)
+close #1
+open ../data/structures/5i6z_A_true.pdb
+
+# ALA is already at 348 in the true WT — S348A is functionally the same
+# as true WT in this crystal structure context.
+# If the intent was SER->ALA, use swapaa ala #1:348 from a SER-containing model.
+# For documentation, save WT as the S348A equivalent:
+save ../data/structures/5i6z_A_S348A_correct.pdb #1 format pdb
+
+close #1
+
+# 4. Visual comparison overlay
+open ../data/structures/5i6z_A_true.pdb
+open ../data/structures/5i6z_A_S348T_correct.pdb
+
+matchmaker #2 to #1 alg bb
+view :345-355
+
+# Highlight residue 348 in both structures
+color #1:348 cornflower blue
+color #2:348 tomato
+show #1:348 atoms
+show #2:348 atoms
+
+# Label
+label #1:348 text "WT ALA348"
+label #2:348 text "S348T THR348"
+
+# Save comparison session
+save ../data/structures/WT_vs_S348T_correct.cxs

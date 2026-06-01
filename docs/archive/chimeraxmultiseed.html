@@ -1,0 +1,89 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<title> ChimeraX Log </title>
+<script type="text/javascript">
+window.onload = function() {
+  cxlinks_base="https://www.rbvi.ucsf.edu/chimerax/docs/"
+  if(!window.navigator.userAgent.includes("ChimeraX")){
+    window.onclick = function(e){
+      if(e.target.tagName.toLowerCase()!="a")
+	return true;
+      var url=e.target.getAttribute("href").toLowerCase();
+      if(url.startsWith("help:")){
+	window.location.href = cxlinks_base + url.substring(5);
+	return false;
+      }
+      if(url.startsWith("cxcmd:")){
+	alert("This link only works in a ChimeraX browser and would execute a command.");
+	return false;
+      }
+      return true;
+    }
+    var ls=document.links;
+    for(var i=0;i<ls.length;i++){
+      var link=ls[i];
+      var url=link.getAttribute("href").toLowerCase();
+      if(url.startsWith("cxcmd:"))
+	link.style.color="darkred";
+    }
+  }
+};
+</script>
+<style>
+
+.cxcmd_as_doc {
+    display: inline;
+}
+.cxcmd_as_cmd {
+    display: none;
+}
+</style>
+</head>
+<body>
+<h1> ChimeraX Log </h1>
+UCSF ChimeraX version: 1.11.1 (2026-01-23)<br>
+© 2016-2025 Regents of the University of California.  All rights reserved.<br>
+<a href="cxcmd:help help:credits.html">How to cite UCSF ChimeraX</a><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/scripts/S438T_Minimization_Workflow.cxc&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/scripts/S438T_Minimization_Workflow.cxc&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/scripts/S438T_Minimization_Workflow.cxc&quot;</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> data/structures/5i6z_A_S438T.pdb</div><div class="cxcmd_as_cmd"><a href="cxcmd:open data/structures/5i6z_A_S438T.pdb">open data/structures/5i6z_A_S438T.pdb</a></div></div><font color="darkred"><b>No such file/path: data/structures/5i6z_A_S438T.pdb<br>
+</b></font><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/scripts/S438T_Minimization_Workflow.cxc&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/scripts/S438T_Minimization_Workflow.cxc&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/scripts/S438T_Minimization_Workflow.cxc&quot;</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> data/structures/5i6z_A_S438T.pdb</div><div class="cxcmd_as_cmd"><a href="cxcmd:open data/structures/5i6z_A_S438T.pdb">open data/structures/5i6z_A_S438T.pdb</a></div></div><font color="darkred"><b>No such file/path: data/structures/5i6z_A_S438T.pdb<br>
+</b></font><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/scripts/S438T_Minimization_Workflow.cxc&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/scripts/S438T_Minimization_Workflow.cxc&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/scripts/S438T_Minimization_Workflow.cxc&quot;</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A_S438T.pdb&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A_S438T.pdb&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A_S438T.pdb&quot;</a></div></div><table border=1 cellpadding=4 cellspacing=0>
+  <thead>
+    <tr>
+      <th colspan="2">Chain information for 5i6z_A_S438T.pdb #1</th>
+    </tr>
+    <tr>
+      <th>Chain</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select /A:74-617">A</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #1/A">No description available</a></td>
+
+    </tr>
+  </tbody>
+</table><br/>Computing secondary structure<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/addh.html">addh</a></div><div class="cxcmd_as_cmd"><a href="cxcmd:addh">addh</a></div></div>
+<table border=1 cellpadding=4 cellspacing=0>
+  <thead>
+    <tr>
+      <th colspan="2">Summary of feedback from adding hydrogens to 5i6z_A_S438T.pdb #1</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><i>warnings</i></td>      <td style="background-color:darkgoldenrod">Not adding hydrogens to /A GLN 76 CB because it is missing heavy-atom bond partners<br>Not adding hydrogens to /A ARG 79 CB because it is missing heavy-atom bond partners<br>Not adding hydrogens to /A TRP 82 CB because it is missing heavy-atom bond partners<br>Not adding hydrogens to /A TYR 110 CB because it is missing heavy-atom bond partners<br>Not adding hydrogens to /A ASN 145 CB because it is missing heavy-atom bond partners<br>22 messages similar to the above omitted</td>    </tr>
+    <tr>
+      <td><i>notes</i></td>      <td style="background-color:Canvas">No usable SEQRES records for 5i6z_A_S438T.pdb (#1) chain A; guessing termini instead<br>Chain-initial residues that are actual N termini: /A GLY 74<br>Chain-initial residues that are not actual N termini: <br>Chain-final residues that are actual C termini: <br>Chain-final residues that are not actual C termini: /A PRO 617<br>455 hydrogen bonds<br>/A PRO 617 is not terminus, removing H atom from &#x27;C&#x27;<br>4126 hydrogens added</td>    </tr>
+  </tbody>
+</table><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/addcharge.html">addcharge</a></div><div class="cxcmd_as_cmd"><a href="cxcmd:addcharge">addcharge</a></div></div>Using Amber 20 recommended default charges and atom types for standard residues<br>
+<p style="color:darkgoldenrod">1 structure has non-integral total charge.<br>
+Details in log.<br>
+</p>Here are the structures will non-integral total charge along with the particular residues from those structures with non-integral total charge:<br>
+5i6z_A_S438T.pdb #1: /A GLN 76: -0.0361, /A ARG 79: -0.0369, /A TRP 82: -0.0346, /A TYR 110: -0.0434, /A ASN 145: -0.1994, /A LYS 201: -0.0353, /A LYS 275: -0.0353, /A GLU 463: -0.0618, /A ARG 464: -0.0369, /A GLU 494: -0.0618, /A GLN 562: -0.0361, /A LEU 597: -0.1842, /A ILE 598: 0.0431, /A ILE 599: 0.0431, /A THR 600: 0.3128, /A THR 603: 0.3128, /A PHE 604: -0.0533, /A LYS 605: -0.0353, /A GLU 606: -0.0618, /A ARG 607: -0.0369, /A ILE 608: 0.0431, /A ILE 609: 0.0431, /A LYS 610: -0.0353, /A SER 611: 0.1567, /A ILE 612: 0.0431, /A THR 613: 0.3128, and /A THR 616: 0.3128<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/select.html">select</a> :95,98,169,172,277,435-442</div><div class="cxcmd_as_cmd"><a href="cxcmd:select :95,98,169,172,277,435-442">select :95,98,169,172,277,435-442</a></div></div>173 atoms, 169 bonds, 13 residues, 1 model selected<br>
+<div class="cxcmd"><span style="background-color:darkred;">freeze ~:95,98,169,172,277,435-442</span></div><font color="darkred"><b>Unknown command: freeze ~:95,98,169,172,277,435-442<br>
+</b></font></body>
+</html>

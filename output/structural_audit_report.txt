@@ -1,0 +1,35 @@
+SERT STRUCTURAL AUDIT — SUMMARY
+============================================================
+
+KEY FINDINGS:
+
+1. RESIDUE 348 IDENTITY
+   5i6z.pdb (raw):     ALA (canonical per SEQADV)
+   5i6z_A.pdb:         THR (mutant already applied)
+   5i6Z_S348T_3.pdb:   THR (same as 5i6z_A — nearly identical)
+   5i6Z_S348_A.pdb:    THR (S348A label is INCORRECT — still THR)
+
+2. SEQADV ENGINEERED MUTATIONS IN 5I6Z CRYSTAL STRUCTURE
+   A291 (canonical ILE291)
+   S439 (canonical THR439) -- engineered reversal of natural THR
+   A554 (canonical CYS554)
+   A580 (canonical CYS580)
+
+3. WT BASELINE
+   The true WT chain A is extracted as: data/structures/5i6z_A_true.pdb
+   Residue 348 = ALA (canonical in 5I6Z context)
+
+4. RECOMMENDED NEXT STEPS
+   a. Re-generate S348T mutant from 5i6z_A_true.pdb (ALA→THR)
+   b. Re-generate S348A mutant from 5i6z_A_true.pdb (ALA→ALA = same)
+      NOTE: If project intends S348 = SER in biological context,
+      start from the canonical human SERT sequence and use homology
+      modeling, not the engineered crystal structure directly.
+
+5. DOCKING BOX PARAMETERS (for AutoDock Vina)
+   center_x = 33.06
+   center_y = 187.25
+   center_z = 141.04
+   size_x = 25
+   size_y = 25
+   size_z = 25

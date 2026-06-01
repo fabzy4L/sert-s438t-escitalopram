@@ -1,0 +1,7 @@
+Run them as two separate commands — paste each one individually:
+
+  $env:PATH += ";C:\Program Files\OpenBabel-3.1.1"                                                                                                                                  
+
+
+Then:                                                                                                                                                                             
+  obabel data/structures/5i6z_A_S438T_minimized.pdb -O output/receptor_s438t_minimized_H.pdbqt

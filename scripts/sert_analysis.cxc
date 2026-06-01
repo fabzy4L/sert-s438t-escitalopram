@@ -1,0 +1,131 @@
+# ============================================================
+# SERT Receptor Design — ChimeraX Analysis Script
+# Open from within ChimeraX (fresh session):
+#   open "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/scripts/sert_analysis.cxc"
+# NOTE: Escitalopram is loaded for reference only — it is not
+# docked. Binding site analysis is qualitative until docking
+# is performed.
+# ============================================================
+
+
+# ------------------------------------------------------------
+# 0. CLEAR SESSION — ensures model numbers are predictable
+# ------------------------------------------------------------
+close
+
+
+# ------------------------------------------------------------
+# 1. LOAD STRUCTURES
+#    #1 = WT (5i6z_A), #2 = S348T, #3 = S348A, #4 = Escitalopram
+# ------------------------------------------------------------
+open "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A.pdb"
+open "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348T_3.pdb"
+open "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348_A.pdb"
+open "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/escitalopram.pdb"
+
+
+# ------------------------------------------------------------
+# 2. SUPERPOSE MUTANTS ONTO WILD-TYPE (RMSD printed to log)
+# ------------------------------------------------------------
+matchmaker #2 to #1
+matchmaker #3 to #1
+
+
+# ------------------------------------------------------------
+# 3. STYLE — CARTOON FOR ALL, STICKS FOR BINDING POCKET
+# ------------------------------------------------------------
+cartoon #1,2,3
+show #1:340-360 atoms
+show #2:340-360 atoms
+show #3:340-360 atoms
+style #1:340-360 stick
+style #2:340-360 stick
+style #3:340-360 stick
+
+
+# ------------------------------------------------------------
+# 4. COLOR EACH MODEL DISTINCTLY
+# ------------------------------------------------------------
+color #1 cornflower blue
+color #2 tomato
+color #3 forest green
+color #4 orange
+
+
+# ------------------------------------------------------------
+# 5. HIGHLIGHT RESIDUE 348 IN EACH STRUCTURE
+# ------------------------------------------------------------
+show #1:348 atoms
+show #2:348 atoms
+show #3:348 atoms
+style #1:348 sphere
+style #2:348 sphere
+style #3:348 sphere
+color #1:348 white
+color #2:348 yellow
+color #3:348 magenta
+
+
+# ------------------------------------------------------------
+# 6. SHOW ESCITALOPRAM (reference — not docked)
+# ------------------------------------------------------------
+show #4 atoms
+style #4 stick
+
+
+# ------------------------------------------------------------
+# 7. HYDROGEN BOND ANALYSIS (WT binding pocket region)
+# ------------------------------------------------------------
+hbonds #1:340-360 reveal true
+
+
+# ------------------------------------------------------------
+# 8. CONTACTS WITHIN 4 Å OF RESIDUE 348
+# ------------------------------------------------------------
+contacts #1:348 radius 4.0 reveal true
+
+
+# ------------------------------------------------------------
+# 9. ZOOM TO BINDING POCKET
+# ------------------------------------------------------------
+view #1:348 pad 10
+
+
+# ------------------------------------------------------------
+# 10. EXPORT FIGURES
+# ------------------------------------------------------------
+
+# Fig 1 — Full overlay of all three structures
+show #1,2,3
+hide #4
+view #1,2,3
+save "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/fig1_overlay_WT_S348T_S348A.png" width 1920 height 1080 supersample 3
+
+# Fig 2 — Binding pocket close-up (WT only)
+hide #2,3
+show #1
+view #1:340-360 pad 5
+save "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/fig2_binding_pocket_WT.png" width 1920 height 1080 supersample 3
+
+# Fig 3 — WT + S348T overlay (binding pocket)
+show #1,2
+hide #3
+view #1:340-360 pad 5
+save "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/fig3_WT_vs_S348T_pocket.png" width 1920 height 1080 supersample 3
+
+# Fig 4 — WT + S348A overlay (binding pocket)
+show #1,3
+hide #2
+view #1:340-360 pad 5
+save "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/fig4_WT_vs_S348A_pocket.png" width 1920 height 1080 supersample 3
+
+# Fig 5 — All three + escitalopram (reference)
+show #1,2,3,4
+view #1:340-360 pad 8
+save "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/fig5_all_structures_with_ligand.png" width 1920 height 1080 supersample 3
+
+
+# ------------------------------------------------------------
+# 11. SAVE SESSION
+# ------------------------------------------------------------
+save "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/Final_Analysis.cxs"

@@ -1,0 +1,15 @@
+# Core scientific stack
+numpy>=1.24
+biopython>=1.80
+
+# Ligand generation
+rdkit          # install via conda: conda install -c conda-forge rdkit
+
+# Docking (choose one)
+# AutoDock Vina binary: https://github.com/ccsb-scripps/AutoDock-Vina/releases
+# meeko (ligand PDBQT prep, requires rdkit): pip install meeko
+# openbabel (format conversion): https://openbabel.org
+
+# Optional — MD / extended analysis
+# mdtraj        # pip install mdtraj
+# openmm        # conda install -c conda-forge openmm

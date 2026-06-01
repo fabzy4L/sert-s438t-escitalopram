@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Report: S348T Structural & Affinity Analysis</title>
+    <style>
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            color: #1a202c;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: #f8fafc;
+        }
+        header {
+            border-bottom: 4px solid #2d3748;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+        }
+        h1 {
+            color: #2d3748;
+            font-size: 24pt;
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        .subtitle {
+            color: #718096;
+            font-size: 12pt;
+            margin-top: 5px;
+        }
+        section {
+            background: white;
+            padding: 30px;
+            border-radius: 4px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+            border-left: 5px solid #3182ce;
+        }
+        h2 {
+            color: #2b6cb0;
+            font-size: 16pt;
+            margin-top: 0;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 10px;
+        }
+        h3 {
+            color: #4a5568;
+            font-size: 13pt;
+            margin-top: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 11pt;
+        }
+        th, td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #edf2f7;
+        }
+        th {
+            background-color: #f7fafc;
+            color: #4a5568;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 10pt;
+        }
+        .metric-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .metric-card {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 4px;
+            text-align: center;
+        }
+        .metric-value {
+            display: block;
+            font-size: 20pt;
+            font-weight: 700;
+            color: #2c5282;
+        }
+        .metric-label {
+            font-size: 9pt;
+            color: #718096;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .analysis-box {
+            background-color: #fffaf0;
+            border: 1px solid #feebc8;
+            padding: 15px;
+            margin-top: 15px;
+            font-size: 10.5pt;
+        }
+        .footer {
+            text-align: right;
+            font-size: 9pt;
+            color: #a0aec0;
+            margin-top: 50px;
+            border-top: 1px solid #e2e8f0;
+            padding-top: 10px;
+        }
+        .math {
+            font-family: 'Times New Roman', serif;
+            font-style: italic;
+            font-weight: bold;
+            color: #2c5282;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>S348T Mutation: Extended Structural Impact Analysis</h1>
+    <div class="subtitle">Human Serotonin Transporter (SERT) | Comparison: WT vs. Mutant Models</div>
+</header>
+
+<section>
+    <h2>1. Global Structural Integrity</h2>
+    <p>Structural alignment indicates that the S348T mutation is "globally silent," maintaining the overall fold of the transporter with negligible backbone deviation.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Model Comparison</th>
+                <th>RMSD (Å)</th>
+                <th>Atom Pairs</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>WT (#1) vs. Mutant (#2)</td>
+                <td>0.030</td>
+                <td>544</td>
+                <td>2890.1</td>
+            </tr>
+            <tr>
+                <td>WT (#1) vs. Mutant (#3)</td>
+                <td>0.005</td>
+                <td>542</td>
+                <td>2901.7</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="analysis-box">
+        <strong>Technical Interpretation:</strong> RMSD values <span class="math">< 0.1 Å</span> suggest that mutation-induced changes are localized to side-chain dynamics rather than large-scale conformational shifts.
+    </div>
+</section>
+
+<section>
+    <h2>2. Local Environment & Interaction Metrics</h2>
+    <p>Focusing on the mutation site at Residue 348 and the surrounding Transmembrane Helix 6 (TM6) region (340-360).</p>
+    <div class="metric-grid">
+        <div class="metric-card">
+            <span class="metric-label">H-Bonds (Region 340-360)</span>
+            <span class="metric-value">102</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Atomic Contacts (4.0Å radius)</span>
+            <span class="metric-value">154</span>
+        </div>
+        <div class="metric-card">
+            <span class="metric-label">Residue Location</span>
+            <span class="metric-value">TM6</span>
+        </div>
+    </div>
+    <h3>Site Dynamics</h3>
+    <ul>
+        <li><strong>Atomic Density:</strong> 154 contacts within <span class="math">4.0Å</span> indicates a highly packed environment [cite: analysis_report.html].</li>
+        <li><strong>Helical Stability:</strong> 102 hydrogen bonds suggest that the TM6 framework remains rigid [cite: analysis_report.html].</li>
+    </ul>
+</section>
+
+<section>
+    <h2>3. Binding Affinity & Steric Analysis</h2>
+    <p>While global stability is high, the local introduction of a methyl group significantly alters the S1 binding pocket dynamics.</p>
+    
+    <h3>The "Methyl Clash" Mechanism</h3>
+    <p>The mutation of Serine (small hydroxymethyl) to Threonine (branched methyl group) introduces steric bulk at position 348. This addition directly impacts the central binding pocket where ligands like Escitalopram reside.</p>
+    
+    <div class="analysis-box">
+        <strong>Comparison to S438T:</strong> In analogous systems, the introduction of a single methyl group into the binding pocket has been shown to result in up to a 175-fold decrease in affinity (increase in <span class="math">K<sub>i</sub></span>) due to steric interference with the ligand's dimethylaminopropyl chain.
+    </div>
+
+    <ul>
+        <li><strong>Ligand Positioning:</strong> Escitalopram is positioned centrally; the S348T mutation likely forces a repositioning of the ligand to avoid the new <span class="math">γ</span>-methyl group [cite: analysis_report.html].</li>
+        <li><strong>Van der Waals Disruption:</strong> The change subtly alters the local VdW environment, potentially disrupting the optimal seating of the inhibitor [cite: analysis_report.html].</li>
+    </ul>
+</section>
+
+<section>
+    <h2>4. Rotamer & Execution Plan</h2>
+    <p>Next steps focus on quantifying the specific energy penalties of the mutation.</p>
+    
+    <h3>Rotamer Dynamics</h3>
+    <p>The <span class="math">χ1</span> rotamer configuration of Threonine 348 determines the exact vector of the steric clash. Because the backbone is rigid (RMSD <span class="math">≈ 0.030Å</span>), the protein cannot flex to accommodate the bulk [cite: analysis_report.html].</p>
+
+    <h3>Operational Logic / Workflow</h3>
+    <ol>
+        <li><strong>Clash Detection:</strong> Execute <code>clashes #1:348 restrict #1:escitalopram</code> to identify direct overlaps.</li>
+        <li><strong>Energy Minimization:</strong> Run a localized gradient descent on the 340-360 region to see if the helix relaxes around the methyl group.</li>
+        <li><strong>Affinity Calculation:</strong> Use MM-GBSA to estimate <span class="math">ΔΔG</span> of binding between WT and S348T.</li>
+    </ol>
+</section>
+
+<div class="footer">
+    Report Compiled: 2026-05-01 | Data Sourced: ChimeraX Log & Structural Analysis Report
+</div>
+
+</body>
+</html>

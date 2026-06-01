@@ -1,0 +1,44 @@
+# ChimeraX Script: S438T Local Energy Minimization
+# Targets the S1 binding pocket residues around Threonine 438 (TM10)
+#
+# Usage:
+#   File > Open > select this script, OR
+#   Command: open scripts/S438T_Minimization_Workflow.cxc
+#
+# Input:  C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A_S438T.pdb
+# Output: C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A_S438T_minimized.pdb
+
+# 1. Load the S438T mutant structure
+open "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A_S438T.pdb"
+
+# 2. Add hydrogens and assign charges (required for energy minimization)
+addh
+addcharge
+
+# 3. Select the S1 binding pocket residues
+#    Core contact residues from Coleman (2016) and Andersen (2009):
+#      Y95, D98           -- TM1 (H-bond partners of the drug amino group)
+#      A169, I172         -- TM3 (hydrophobic contacts)
+#      S277               -- TM6
+#      T438, S439         -- TM10 (mutation site + adjacent)
+#    Plus local TM10 context (435-442) to allow backbone relaxation
+select :95,98,169,172,277,435-442
+
+# 4 & 5. Energy minimization with pocket residues free, rest of protein frozen
+#    100 steps steepest descent to remove clashes, then 200 conjugate gradient
+#    to refine side-chain geometry around THR438
+minimize nsteps 100 cgsteps 200 stepsize 0.02 interval 10 freeze ~:95,98,169,172,277,435-442
+
+# 6. Post-minimization: verify THR438 geometry
+select :438
+show :438 atoms
+label :438 text "{0.name} {0.number}" height 1.5
+
+# 7. H-bond analysis around the mutated site
+hbonds :435-442 reveal true
+
+# 8. Save the minimized structure
+save "C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A_S438T_minimized.pdb" format pdb models #1
+
+# 9. Report RMSD of the minimized pocket vs input (quantify relaxation)
+rmsd #1:95,98,169,172,277,435-442 to #1:95,98,169,172,277,435-442

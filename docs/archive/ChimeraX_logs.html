@@ -1,0 +1,466 @@
+<html>
+<head>
+<meta charset='utf-8'>
+<title> ChimeraX Log </title>
+<script type="text/javascript">
+window.onload = function() {
+  cxlinks_base="https://www.rbvi.ucsf.edu/chimerax/docs/"
+  if(!window.navigator.userAgent.includes("ChimeraX")){
+    window.onclick = function(e){
+      if(e.target.tagName.toLowerCase()!="a")
+	return true;
+      var url=e.target.getAttribute("href").toLowerCase();
+      if(url.startsWith("help:")){
+	window.location.href = cxlinks_base + url.substring(5);
+	return false;
+      }
+      if(url.startsWith("cxcmd:")){
+	alert("This link only works in a ChimeraX browser and would execute a command.");
+	return false;
+      }
+      return true;
+    }
+    var ls=document.links;
+    for(var i=0;i<ls.length;i++){
+      var link=ls[i];
+      var url=link.getAttribute("href").toLowerCase();
+      if(url.startsWith("cxcmd:"))
+	link.style.color="darkred";
+    }
+  }
+};
+</script>
+<style>
+
+.cxcmd_as_doc {
+    display: inline;
+}
+.cxcmd_as_cmd {
+    display: none;
+}
+</style>
+</head>
+<body>
+<h1> ChimeraX Log </h1>
+UCSF ChimeraX version: 1.11.1 (2026-01-23)<br>
+© 2016-2025 Regents of the University of California.  All rights reserved.<br>
+<a href="cxcmd:help help:credits.html">How to cite UCSF ChimeraX</a><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\PYTHON\RECEPTOR_DESIGN\5i6Z_S348T_3.pdb&quot; format pdb</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\PYTHON\RECEPTOR_DESIGN\5i6Z_S348T_3.pdb&quot; format pdb">open &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\PYTHON\RECEPTOR_DESIGN\5i6Z_S348T_3.pdb&quot; format pdb</a></div></div><font color="darkred"><b>No such file/path: C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\PYTHON\RECEPTOR_DESIGN\5i6Z_S348T_3.pdb<br>
+</b></font><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:\Users\Fabian Alvarez-Primo\Downloads\2a65.pdb&quot; format pdb</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:\Users\Fabian Alvarez-Primo\Downloads\2a65.pdb&quot; format pdb">open &quot;C:\Users\Fabian Alvarez-Primo\Downloads\2a65.pdb&quot; format pdb</a></div></div><font color="darkred"><b>No such file/path: C:\Users\Fabian Alvarez-Primo\Downloads\2a65.pdb<br>
+</b></font><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/help.html">help</a> help:quickstart</div><div class="cxcmd_as_cmd"><a href="cxcmd:help help:quickstart">help help:quickstart</a></div></div><div class="cxcmd"><span style="background-color:darkred;">--script scripts/sert_analysis.cxc</span></div><font color="darkred"><b>Unknown command: --script scripts/sert_analysis.cxc</b></font><br/><div class="cxcmd"><a href="help:user/commands/open.html">open</a><span style="background-color:darkred;">&quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc</span></div><font color="darkred"><b>incomplete quoted text</b></font><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;">open &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> data/structures/5i6z_A.pdb</div><div class="cxcmd_as_cmd"><a href="cxcmd:open data/structures/5i6z_A.pdb">open data/structures/5i6z_A.pdb</a></div></div><font color="darkred"><b>No such file/path: data/structures/5i6z_A.pdb</b></font><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z.cif&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z.cif&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z.cif&quot;</a></div></div>
+<table border=1 cellpadding=4 cellspacing=0>
+  <thead>
+    <tr>
+      <th colspan="2">Summary of feedback from opening C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z.cif</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><i>note</i></td>      <td style="background-color:Canvas">Fetching CCD NAG from https://files.wwpdb.org/pub/pdb/refdata/chem_comp/G/NAG/NAG.cif</td>    </tr>
+  </tbody>
+</table><br/><i>5i6z.cif</i> title:<br><b>X-ray structure of the ts2 human serotonin transporter</b> <a href="cxcmd:log metadata #1">[more&nbsp;info...]</a><br><br/><table border=1 cellpadding=4 cellspacing=0>
+  <thead>
+    <tr>
+      <th colspan="3">Chain information for 5i6z.cif #1</th>
+    </tr>
+    <tr>
+      <th>Chain</th>
+      <th>Description</th>
+      <th>UniProt</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select /A:74-617">A</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #1/A">Sodium-dependent serotonin transporter</a></td>
+      <td style="text-align:center"><a title="Show annotations" href="cxcmd:open P31645 from uniprot associate #1/A">SC6A4_HUMAN</a> <a title="Select sequence" href="cxcmd:select #1/A:76-618">76-618</a></td>
+    </tr>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select /B:20-237">B</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #1/B">8B6 antibody, heavy chain</a></td>
+      <td style="text-align:center"></td>
+    </tr>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select /C:21-234">C</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #1/C">8B6 antibody, light chain</a></td>
+      <td style="text-align:center"></td>
+    </tr>
+  </tbody>
+</table><br/><table border=1 cellpadding=4 cellspacing=0>
+ <thead>
+  <tr>
+   <th>Non-standard residues in 5i6z.cif #1</th>
+  </tr>
+ </thead>
+ <tbody>
+  <tr>
+   <td><a title="select residue" href="cxcmd:sel :NAG">NAG</a> &mdash; <a title="show residue info" href="https://www.rcsb.org/ligand/NAG">2-acetamido-2-deoxy-beta-D-glucopyranose</a></td>
+  </tr>
+ </tbody>
+</table><br/><table border=1 cellpadding=4 cellspacing=0>
+<tr><th colspan=3>5i6z.cif mmCIF Assemblies
+<tr><td><a title="Generate assembly" href="cxcmd:sym #1 assembly 1 ; view">1</a><td>author_and_software_defined_assembly
+</table><br/>7517 atoms have anisotropic B-factors.  Depict anisotropic information with <b><a href="cxcmd:help help:user/tools/thermalellipsoids.html">Thermal Ellipsoids</a></b> [<a href="cxcmd:ui tool show 'Thermal Ellipsoids'">start&nbsp;tool...</a>] or the <b><a href="cxcmd:help aniso">aniso</a></b> command.<br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;">open &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> data/structures/5i6z_A.pdb</div><div class="cxcmd_as_cmd"><a href="cxcmd:open data/structures/5i6z_A.pdb">open data/structures/5i6z_A.pdb</a></div></div><font color="darkred"><b>No such file/path: data/structures/5i6z_A.pdb</b></font><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;">open &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A.pdb&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A.pdb&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A.pdb&quot;</a></div></div><i>5i6z_A.pdb</i> title:<br><b>SWISS-MODEL SERVER (https://swissmodel.expasy.org) 5i6z_A</b> <a href="cxcmd:log metadata #2">[more&nbsp;info...]</a><br><br/><table border=1 cellpadding=4 cellspacing=0>
+  <thead>
+    <tr>
+      <th colspan="2">Chain information for 5i6z_A.pdb #2</th>
+    </tr>
+    <tr>
+      <th>Chain</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select #2/A:1-544">A</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #2/A">No description available</a></td>
+
+    </tr>
+  </tbody>
+</table><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348T_3.pdb&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348T_3.pdb&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348T_3.pdb&quot;</a></div></div><i>5i6Z_S348T_3.pdb</i> title:<br><b>SWISS-MODEL SERVER (https://swissmodel.expasy.org) S348T_3</b> <a href="cxcmd:log metadata #3">[more&nbsp;info...]</a><br><br/><table border=1 cellpadding=4 cellspacing=0>
+  <thead>
+    <tr>
+      <th colspan="2">Chain information for 5i6Z_S348T_3.pdb #3</th>
+    </tr>
+    <tr>
+      <th>Chain</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select #3/A:1-544">A</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #3/A">No description available</a></td>
+
+    </tr>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select #3/B:1-218">B</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #3/B">No description available</a></td>
+
+    </tr>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select #3/C:1-214">C</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #3/C">No description available</a></td>
+
+    </tr>
+  </tbody>
+</table><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348_A.pdb&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348_A.pdb&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348_A.pdb&quot;</a></div></div><i>5i6Z_S348_A.pdb</i> title:<br><b>SWISS-MODEL SERVER (https://swissmodel.expasy.org) SERT_A_S348T</b> <a href="cxcmd:log metadata #4">[more&nbsp;info...]</a><br><br/><table border=1 cellpadding=4 cellspacing=0>
+  <thead>
+    <tr>
+      <th colspan="2">Chain information for 5i6Z_S348_A.pdb #4</th>
+    </tr>
+    <tr>
+      <th>Chain</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select #4/A:3-544">A</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #4/A">No description available</a></td>
+
+    </tr>
+  </tbody>
+</table><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/escitalopram.pdb&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/escitalopram.pdb&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/escitalopram.pdb&quot;</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/matchmaker.html">matchmaker</a> #2 to #1</div><div class="cxcmd_as_cmd"><a href="cxcmd:matchmaker #2 to #1">matchmaker #2 to #1</a></div></div>Computing secondary structure<br>
+
+                    <table border=1 cellpadding=4 cellspacing=0>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td>Chain pairing</td>
+                            <td>bb</td>
+                        </tr>
+                        <tr>
+                            <td>Alignment algorithm</td>
+                            <td>Needleman-Wunsch</td>
+                        </tr>
+                        <tr>
+                            <td>Similarity matrix</td>
+                            <td>BLOSUM-62</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>SS fraction</td>
+                            <td>0.3</td>
+                        </tr>
+                        <tr>
+                            <td>Gap open (HH/SS/other)</td>
+                            <td>18/18/6</td>
+                        </tr>
+                        <tr>
+                            <td>Gap extend</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>SS matrix</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <th></th> <th>H</th> <th>S</th> <th>O</th>
+                                    </tr>
+                                    <tr>
+                                        <th>H</th> <td align="right">6</td> <td align="right">-9</td> <td align="right">-6</td>
+                                    </tr>
+                                    <tr>
+                                        <th>S</th> <td></td> <td align="right">6</td> <td align="right">-6</td>
+                                    </tr>
+                                    <tr>
+                                        <th>O</th> <td></td> <td></td> <td align="right">4</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    
+                        <tr> <td>Iteration cutoff</td> <td>2</td></tr>
+                    </table>
+                <br/>Matchmaker 5i6z.cif, chain A (#1) with 5i6z_A.pdb, chain A (#2), sequence alignment score = 2867.6<br>
+RMSD between 544 pruned atom pairs is 0.128 angstroms; (across all 544 pairs: 0.128)<br>
+<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/matchmaker.html">matchmaker</a> #3 to #1</div><div class="cxcmd_as_cmd"><a href="cxcmd:matchmaker #3 to #1">matchmaker #3 to #1</a></div></div>Computing secondary structure<br>
+
+                    <table border=1 cellpadding=4 cellspacing=0>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td>Chain pairing</td>
+                            <td>bb</td>
+                        </tr>
+                        <tr>
+                            <td>Alignment algorithm</td>
+                            <td>Needleman-Wunsch</td>
+                        </tr>
+                        <tr>
+                            <td>Similarity matrix</td>
+                            <td>BLOSUM-62</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>SS fraction</td>
+                            <td>0.3</td>
+                        </tr>
+                        <tr>
+                            <td>Gap open (HH/SS/other)</td>
+                            <td>18/18/6</td>
+                        </tr>
+                        <tr>
+                            <td>Gap extend</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>SS matrix</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <th></th> <th>H</th> <th>S</th> <th>O</th>
+                                    </tr>
+                                    <tr>
+                                        <th>H</th> <td align="right">6</td> <td align="right">-9</td> <td align="right">-6</td>
+                                    </tr>
+                                    <tr>
+                                        <th>S</th> <td></td> <td align="right">6</td> <td align="right">-6</td>
+                                    </tr>
+                                    <tr>
+                                        <th>O</th> <td></td> <td></td> <td align="right">4</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    
+                        <tr> <td>Iteration cutoff</td> <td>2</td></tr>
+                    </table>
+                <br/>Matchmaker 5i6z.cif, chain A (#1) with 5i6Z_S348T_3.pdb, chain A (#3), sequence alignment score = 2881.1<br>
+RMSD between 544 pruned atom pairs is 0.103 angstroms; (across all 544 pairs: 0.103)<br>
+<br>
+<div class="cxcmd"><a href="help:user/commands/style.html">style</a> #1,2,3 <span style="background-color:darkred;">ribbon</span></div><font color="darkred"><b>Expected a keyword</b></font><br/>Computing secondary structure<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;">open &quot;C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\sert_analysis.cxc&quot;</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/close.html">close</a></div><div class="cxcmd_as_cmd"><a href="cxcmd:close">close</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A.pdb&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A.pdb&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6z_A.pdb&quot;</a></div></div><i>5i6z_A.pdb</i> title:<br><b>SWISS-MODEL SERVER (https://swissmodel.expasy.org) 5i6z_A</b> <a href="cxcmd:log metadata #1">[more&nbsp;info...]</a><br><br/><table border=1 cellpadding=4 cellspacing=0>
+  <thead>
+    <tr>
+      <th colspan="2">Chain information for 5i6z_A.pdb #1</th>
+    </tr>
+    <tr>
+      <th>Chain</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select /A:1-544">A</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #1/A">No description available</a></td>
+
+    </tr>
+  </tbody>
+</table><br/>Computing secondary structure<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348T_3.pdb&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348T_3.pdb&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348T_3.pdb&quot;</a></div></div><i>5i6Z_S348T_3.pdb</i> title:<br><b>SWISS-MODEL SERVER (https://swissmodel.expasy.org) S348T_3</b> <a href="cxcmd:log metadata #2">[more&nbsp;info...]</a><br><br/><table border=1 cellpadding=4 cellspacing=0>
+  <thead>
+    <tr>
+      <th colspan="2">Chain information for 5i6Z_S348T_3.pdb #2</th>
+    </tr>
+    <tr>
+      <th>Chain</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select #2/A:1-544">A</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #2/A">No description available</a></td>
+
+    </tr>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select #2/B:1-218">B</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #2/B">No description available</a></td>
+
+    </tr>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select #2/C:1-214">C</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #2/C">No description available</a></td>
+
+    </tr>
+  </tbody>
+</table><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348_A.pdb&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348_A.pdb&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/data/structures/5i6Z_S348_A.pdb&quot;</a></div></div><i>5i6Z_S348_A.pdb</i> title:<br><b>SWISS-MODEL SERVER (https://swissmodel.expasy.org) SERT_A_S348T</b> <a href="cxcmd:log metadata #3">[more&nbsp;info...]</a><br><br/><table border=1 cellpadding=4 cellspacing=0>
+  <thead>
+    <tr>
+      <th colspan="2">Chain information for 5i6Z_S348_A.pdb #3</th>
+    </tr>
+    <tr>
+      <th>Chain</th>
+      <th>Description</th>
+
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td style="text-align:center"><a title="Select chain" href="cxcmd:select #3/A:3-544">A</a></td>
+      <td><a title="Show sequence" href="cxcmd:sequence chain #3/A">No description available</a></td>
+
+    </tr>
+  </tbody>
+</table><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/open.html">open</a> &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/escitalopram.pdb&quot;</div><div class="cxcmd_as_cmd"><a href="cxcmd:open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/escitalopram.pdb&quot;">open &quot;C:/Users/Fabian Alvarez-Primo/Documents/Github/DATA_ANALYTICS/bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN/output/escitalopram.pdb&quot;</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/matchmaker.html">matchmaker</a> #2 to #1</div><div class="cxcmd_as_cmd"><a href="cxcmd:matchmaker #2 to #1">matchmaker #2 to #1</a></div></div>Computing secondary structure<br>
+
+                    <table border=1 cellpadding=4 cellspacing=0>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td>Chain pairing</td>
+                            <td>bb</td>
+                        </tr>
+                        <tr>
+                            <td>Alignment algorithm</td>
+                            <td>Needleman-Wunsch</td>
+                        </tr>
+                        <tr>
+                            <td>Similarity matrix</td>
+                            <td>BLOSUM-62</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>SS fraction</td>
+                            <td>0.3</td>
+                        </tr>
+                        <tr>
+                            <td>Gap open (HH/SS/other)</td>
+                            <td>18/18/6</td>
+                        </tr>
+                        <tr>
+                            <td>Gap extend</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>SS matrix</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <th></th> <th>H</th> <th>S</th> <th>O</th>
+                                    </tr>
+                                    <tr>
+                                        <th>H</th> <td align="right">6</td> <td align="right">-9</td> <td align="right">-6</td>
+                                    </tr>
+                                    <tr>
+                                        <th>S</th> <td></td> <td align="right">6</td> <td align="right">-6</td>
+                                    </tr>
+                                    <tr>
+                                        <th>O</th> <td></td> <td></td> <td align="right">4</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    
+                        <tr> <td>Iteration cutoff</td> <td>2</td></tr>
+                    </table>
+                <br/>Matchmaker 5i6z_A.pdb, chain A (#1) with 5i6Z_S348T_3.pdb, chain A (#2), sequence alignment score = 2890.1<br>
+RMSD between 544 pruned atom pairs is 0.030 angstroms; (across all 544 pairs: 0.030)<br>
+<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/matchmaker.html">matchmaker</a> #3 to #1</div><div class="cxcmd_as_cmd"><a href="cxcmd:matchmaker #3 to #1">matchmaker #3 to #1</a></div></div>Computing secondary structure<br>
+
+                    <table border=1 cellpadding=4 cellspacing=0>
+                        <tr>
+                            <th colspan="2">Parameters</th>
+                        </tr>
+                        <tr>
+                            <td>Chain pairing</td>
+                            <td>bb</td>
+                        </tr>
+                        <tr>
+                            <td>Alignment algorithm</td>
+                            <td>Needleman-Wunsch</td>
+                        </tr>
+                        <tr>
+                            <td>Similarity matrix</td>
+                            <td>BLOSUM-62</td>
+                        </tr>
+                        
+                        <tr>
+                            <td>SS fraction</td>
+                            <td>0.3</td>
+                        </tr>
+                        <tr>
+                            <td>Gap open (HH/SS/other)</td>
+                            <td>18/18/6</td>
+                        </tr>
+                        <tr>
+                            <td>Gap extend</td>
+                            <td>1</td>
+                        </tr>
+                        <tr>
+                            <td>SS matrix</td>
+                            <td>
+                                <table>
+                                    <tr>
+                                        <th></th> <th>H</th> <th>S</th> <th>O</th>
+                                    </tr>
+                                    <tr>
+                                        <th>H</th> <td align="right">6</td> <td align="right">-9</td> <td align="right">-6</td>
+                                    </tr>
+                                    <tr>
+                                        <th>S</th> <td></td> <td align="right">6</td> <td align="right">-6</td>
+                                    </tr>
+                                    <tr>
+                                        <th>O</th> <td></td> <td></td> <td align="right">4</td>
+                                    </tr>
+                                </table>
+                            </td>
+                        </tr>
+                    
+                        <tr> <td>Iteration cutoff</td> <td>2</td></tr>
+                    </table>
+                <br/>Matchmaker 5i6z_A.pdb, chain A (#1) with 5i6Z_S348_A.pdb, chain A (#3), sequence alignment score = 2901.7<br>
+RMSD between 542 pruned atom pairs is 0.005 angstroms; (across all 542 pairs: 0.005)<br>
+<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/cartoon.html">cartoon</a> #1,2,3</div><div class="cxcmd_as_cmd"><a href="cxcmd:cartoon #1,2,3">cartoon #1,2,3</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/show.html">show</a> #1:340-360 atoms</div><div class="cxcmd_as_cmd"><a href="cxcmd:show #1:340-360 atoms">show #1:340-360 atoms</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/show.html">show</a> #2:340-360 atoms</div><div class="cxcmd_as_cmd"><a href="cxcmd:show #2:340-360 atoms">show #2:340-360 atoms</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/show.html">show</a> #3:340-360 atoms</div><div class="cxcmd_as_cmd"><a href="cxcmd:show #3:340-360 atoms">show #3:340-360 atoms</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/style.html">style</a> #1:340-360 stick</div><div class="cxcmd_as_cmd"><a href="cxcmd:style #1:340-360 stick">style #1:340-360 stick</a></div></div>Changed 163 atom styles<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/style.html">style</a> #2:340-360 stick</div><div class="cxcmd_as_cmd"><a href="cxcmd:style #2:340-360 stick">style #2:340-360 stick</a></div></div>Changed 163 atom styles<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/style.html">style</a> #3:340-360 stick</div><div class="cxcmd_as_cmd"><a href="cxcmd:style #3:340-360 stick">style #3:340-360 stick</a></div></div>Changed 163 atom styles<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/color.html">color</a> #1 cornflower blue</div><div class="cxcmd_as_cmd"><a href="cxcmd:color #1 cornflower blue">color #1 cornflower blue</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/color.html">color</a> #2 tomato</div><div class="cxcmd_as_cmd"><a href="cxcmd:color #2 tomato">color #2 tomato</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/color.html">color</a> #3 forest green</div><div class="cxcmd_as_cmd"><a href="cxcmd:color #3 forest green">color #3 forest green</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/color.html">color</a> #4 orange</div><div class="cxcmd_as_cmd"><a href="cxcmd:color #4 orange">color #4 orange</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/show.html">show</a> #1:348 atoms</div><div class="cxcmd_as_cmd"><a href="cxcmd:show #1:348 atoms">show #1:348 atoms</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/show.html">show</a> #2:348 atoms</div><div class="cxcmd_as_cmd"><a href="cxcmd:show #2:348 atoms">show #2:348 atoms</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/show.html">show</a> #3:348 atoms</div><div class="cxcmd_as_cmd"><a href="cxcmd:show #3:348 atoms">show #3:348 atoms</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/style.html">style</a> #1:348 sphere</div><div class="cxcmd_as_cmd"><a href="cxcmd:style #1:348 sphere">style #1:348 sphere</a></div></div>Changed 7 atom styles<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/style.html">style</a> #2:348 sphere</div><div class="cxcmd_as_cmd"><a href="cxcmd:style #2:348 sphere">style #2:348 sphere</a></div></div>Changed 7 atom styles<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/style.html">style</a> #3:348 sphere</div><div class="cxcmd_as_cmd"><a href="cxcmd:style #3:348 sphere">style #3:348 sphere</a></div></div>Changed 7 atom styles<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/color.html">color</a> #1:348 white</div><div class="cxcmd_as_cmd"><a href="cxcmd:color #1:348 white">color #1:348 white</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/color.html">color</a> #2:348 yellow</div><div class="cxcmd_as_cmd"><a href="cxcmd:color #2:348 yellow">color #2:348 yellow</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/color.html">color</a> #3:348 magenta</div><div class="cxcmd_as_cmd"><a href="cxcmd:color #3:348 magenta">color #3:348 magenta</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/show.html">show</a> #4 atoms</div><div class="cxcmd_as_cmd"><a href="cxcmd:show #4 atoms">show #4 atoms</a></div></div><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/style.html">style</a> #4 stick</div><div class="cxcmd_as_cmd"><a href="cxcmd:style #4 stick">style #4 stick</a></div></div>Changed 45 atom styles<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/hbonds.html">hbonds</a> #1:340-360 reveal true</div><div class="cxcmd_as_cmd"><a href="cxcmd:hbonds #1:340-360 reveal true">hbonds #1:340-360 reveal true</a></div></div>102 hydrogen bonds found<br>
+<div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/clashes.html">contacts</a> #1:348 radius 4.0 reveal true</div><div class="cxcmd_as_cmd"><a href="cxcmd:contacts #1:348 radius 4.0 reveal true">contacts #1:348 radius 4.0 reveal true</a></div></div>154 contacts<br>
+<div class="cxcmd"><a href="help:user/commands/view.html">view</a> #1:348 <span style="background-color:darkred;">padding 10</span></div><font color="darkred"><b>Expected an integer &gt;= 1 or a keyword</b></font><br/><div class="cxcmd"><div class="cxcmd_as_doc"><a href="help:user/commands/ui.html#windowfill">ui windowfill</a> toggle</div><div class="cxcmd_as_cmd"><a href="cxcmd:ui windowfill toggle">ui windowfill toggle</a></div></div>[Repeated 1 time(s)]</body>
+</html>

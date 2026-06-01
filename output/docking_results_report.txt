@@ -1,0 +1,102 @@
+SERT + Escitalopram Docking Results
+AutoDock Vina 1.2.5 | Generated 2026-05-01
+======================================================================
+
+SETUP
+  Receptor WT   : output/receptor_wt.pdbqt  (chain A from 5I6Z, SER438)
+  Receptor S438T: output/receptor_s438t.pdbqt (SER438->THR, g+ rotamer, NERF)
+  Ligand        : output/escitalopram.pdbqt (RDKit-generated 3D conformation)
+  Box center    : x=33.06, y=187.25, z=141.04 (S1 site centroid, Coleman 2016)
+  Box size      : 25 x 25 x 25 Angstrom
+  Exhaustiveness: 8 | Poses: 10
+
+----------------------------------------------------------------------
+WILD-TYPE (SER438) — 10 poses
+
+  mode | affinity (kcal/mol) | RMSD lb | RMSD ub
+  -----+---------------------+---------+---------
+     1 |       -8.100        |  0.000  |  0.000
+     2 |       -8.078        |  2.757  |  5.530
+     3 |       -7.962        |  2.472  |  5.599
+     4 |       -7.952        |  2.826  |  5.552
+     5 |       -7.732        |  3.317  |  3.762
+     6 |       -7.586        |  3.541  |  5.063
+     7 |       -7.546        |  3.185  |  5.024
+     8 |       -7.529        |  3.944  |  5.250
+     9 |       -7.508        |  4.784  |  7.181
+    10 |       -7.250        |  5.120  |  7.513
+
+  Best pose: -8.100 kcal/mol
+
+----------------------------------------------------------------------
+S438T MUTANT (THR438) — 10 poses
+
+  mode | affinity (kcal/mol) | RMSD lb | RMSD ub
+  -----+---------------------+---------+---------
+     1 |       -8.297        |  0.000  |  0.000
+     2 |       -7.934        |  3.436  |  6.697
+     3 |       -7.853        |  2.739  |  3.249
+     4 |       -7.840        |  4.039  |  5.442
+     5 |       -7.789        |  4.366  |  6.838
+     6 |       -7.775        |  3.577  |  5.250
+     7 |       -7.769        |  3.164  |  5.025
+     8 |       -7.596        |  4.010  |  4.864
+     9 |       -7.531        |  4.205  |  6.078
+    10 |       -7.502        |  4.745  |  7.177
+
+  Best pose: -8.297 kcal/mol
+
+----------------------------------------------------------------------
+COMPARISON
+
+  WT best affinity    : -8.100 kcal/mol
+  S438T best affinity : -8.297 kcal/mol
+  Delta G (S438T - WT): -0.197 kcal/mol
+
+  S438T shows marginally INCREASED predicted binding affinity vs WT.
+  Delta G = -0.197 kcal/mol is within Vina's scoring noise (~0.5 kcal/mol),
+  so the two receptors are computationally equivalent in this rigid-receptor model.
+
+----------------------------------------------------------------------
+INTERPRETATION
+
+Serine 438 is a primary S1 pocket contact residue. The S438T substitution
+introduces a gamma-methyl group (Thr vs Ser) into the S1 binding pocket,
+which experimental data (Andersen et al., 2009) shows causes a ~320-fold
+increase in Ki for (S)-citalopram (escitalopram).
+
+The computed Delta G of -0.197 kcal/mol does NOT replicate this experimental
+magnitude. This "missing clash" is attributed to:
+
+  1. Rigid-receptor approximation: the ligand reorients to avoid the methyl
+     group without triggering the desolvation and entropic penalties that
+     manifest in the living transporter.
+  2. Na1 coordination disruption: S438 coordinates a sodium ion in the S1
+     site. Replacing it with Thr likely disrupts this water/ion network in a
+     way Vina's scoring function does not capture.
+  3. Scoring function noise: the 0.197 kcal/mol shift is below Vina's
+     reported accuracy floor (~0.5 kcal/mol).
+
+The experimental data in Andersen et al. (2009) remains the gold standard.
+These results establish a rigid-docking baseline and confirm the correct
+mutation site (438) is within the S1 pocket.
+
+----------------------------------------------------------------------
+NEXT STEPS TO STRENGTHEN RESULTS
+
+  1. Re-run with exhaustiveness=32 and >=5 independent seeds:
+       vina --config output/vina_wt.conf --exhaustiveness 32 --seed <N>
+       vina --config output/vina_s438t.conf --exhaustiveness 32 --seed <N>
+
+  2. Regenerate ligand PDBQT with proper Gasteiger charges via OpenBabel:
+       obabel output/escitalopram.pdb -O output/escitalopram.pdbqt
+              --partialcharge gasteiger -h
+
+  3. Validate box placement against co-crystallized (R)-citalopram pose
+     in 5I71 (residue 68P) before interpreting mutation effects.
+
+  4. Energy minimize the S438T S1 pocket (THR438 + neighbors) in ChimeraX
+     before docking to relieve any steric strain from in-silico placement.
+
+  5. MD simulation (100 ns, POPC bilayer) to capture receptor flexibility
+     and quantify the desolvation/kinetic penalty of the S438T clash.

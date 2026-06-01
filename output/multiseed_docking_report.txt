@@ -1,0 +1,48 @@
+SERT + Escitalopram — Multi-Seed Docking Results
+AutoDock Vina 1.2.5 | exhaustiveness=32 | seeds=[42, 123, 456, 789, 1001]
+======================================================================
+
+SETUP
+  Receptor WT   : receptor_wt_H.pdbqt
+  Receptor S438T: receptor_s438t_minimized_H.pdbqt
+  Ligand        : escitalopram.pdbqt
+  Box centre    : (33.06, 187.25, 141.04)
+  Box size      : 25 x 25 x 25 A
+
+----------------------------------------------------------------------
+PER-SEED RESULTS
+
+  WT (SER438)
+  Seed     Best Affinity (kcal/mol)
+  -------- ------------------------
+  42       -8.573
+  123      -8.563
+  456      -8.568
+  789      -8.596
+  1001     -8.575
+
+  S438T (THR438)
+  Seed     Best Affinity (kcal/mol)
+  -------- ------------------------
+  42       -8.317
+  123      -8.322
+  456      -8.292
+  789      -8.290
+  1001     -8.311
+
+----------------------------------------------------------------------
+SUMMARY
+
+  WT (SER438)    : -8.575 +/- 0.013 kcal/mol
+  S438T (THR438) : -8.306 +/- 0.015 kcal/mol
+  Delta-Delta-G  : +0.269 kcal/mol  (S438T - WT)
+
+  Interpretation:
+  Both values are within AutoDock Vina scoring noise (~0.5 kcal/mol).
+  S438T shows marginally weaker predicted binding in the rigid-receptor model.
+
+----------------------------------------------------------------------
+NOTE: rigid-receptor docking does not capture the desolvation penalty
+or Na+ coordination disruption associated with S438T. The experimental
+320-fold Ki increase (Andersen et al., 2009) requires flexible-receptor
+or MD-based methods to reproduce.

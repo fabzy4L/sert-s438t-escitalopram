@@ -1,0 +1,295 @@
+MODEL 1
+REMARK VINA RESULT:    -8.313      0.000      0.000
+REMARK INTER + INTRA:         -12.108
+REMARK INTER:                 -11.229
+REMARK INTRA:                  -0.879
+REMARK UNBOUND:                -0.879
+REMARK  Name = C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\output\68P_crystal_reference.pdb
+REMARK  8 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C10_1  and  C05_13
+REMARK    2  A    between atoms: C22_7  and  N03_11
+REMARK    3  A    between atoms: C24_8  and  C18_22
+REMARK    4  A    between atoms: N03_11  and  C12_19
+REMARK    5  A    between atoms: N03_11  and  C23_24
+REMARK    6  A    between atoms: C05_13  and  C06_14
+REMARK    7  A    between atoms: C06_14  and  C09_17
+REMARK    8  A    between atoms: C09_17  and  C12_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C13 68P A 701      34.218 183.629 143.799  0.00  0.00    -0.001 A 
+ATOM      2  C17 68P A 701      35.282 182.548 143.929  0.00  0.00    +0.010 A 
+ATOM      3  O02 68P A 701      31.711 184.198 140.895  0.00  0.00    -0.346 OA
+ATOM      4  C05 68P A 701      32.120 184.560 142.211  0.00  0.00    +0.130 C 
+ATOM      5  C07 68P A 701      33.259 183.643 142.590  0.00  0.00    +0.004 A 
+ATOM      6  C08 68P A 701      33.364 182.592 141.554  0.00  0.00    +0.006 A 
+ATOM      7  C11 68P A 701      32.341 182.888 140.544  0.00  0.00    +0.169 C 
+ATOM      8  C14 68P A 701      34.453 181.490 141.687  0.00  0.00    +0.008 A 
+ATOM      9  C18 68P A 701      35.411 181.495 142.876  0.00  0.00    +0.068 A 
+ENDROOT
+BRANCH   4  10
+ATOM     10  C10 68P A 701      30.979 184.335 143.163  0.00  0.00    +0.006 A 
+ATOM     11  C15 68P A 701      29.906 183.279 142.866  0.00  0.00    +0.001 A 
+ATOM     12  C20 68P A 701      29.705 184.922 145.419  0.00  0.00    +0.029 A 
+ATOM     13  C21 68P A 701      28.638 183.866 145.117  0.00  0.00    +0.140 A 
+ATOM     14  F01 68P A 701      27.620 183.663 145.971  0.00  0.00    -0.204 F 
+ATOM     15  C16 68P A 701      30.870 185.154 144.439  0.00  0.00    +0.001 A 
+ATOM     16  C19 68P A 701      28.737 183.047 143.842  0.00  0.00    +0.029 A 
+ENDBRANCH   4  10
+BRANCH   9  17
+ATOM     17  C24 68P A 701      36.493 180.424 143.040  0.00  0.00    +0.100 C 
+ATOM     18  N04 68P A 701      37.329 179.628 143.163  0.00  0.00    -0.191 NA
+ENDBRANCH   9  17
+BRANCH   4  19
+ATOM     19  C06 68P A 701      32.568 186.039 142.283  0.00  0.00    +0.037 C 
+BRANCH  19  20
+ATOM     20  C09 68P A 701      34.086 186.159 142.026  0.00  0.00    +0.020 C 
+BRANCH  20  21
+ATOM     21  C12 68P A 701      34.329 186.582 140.576  0.00  0.00    +0.072 C 
+BRANCH  21  23
+ATOM     22  C22 68P A 701      35.085 185.889 138.382  0.00  0.00    +0.090 C 
+ATOM     23  N03 68P A 701      34.750 185.459 139.766  0.00  0.00    -0.270 NA
+ATOM     24  C23 68P A 701      35.854 184.759 140.378  0.00  0.00    +0.090 C 
+ENDBRANCH  21  23
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH   4  19
+TORSDOF 6
+ENDMDL
+MODEL 2
+REMARK VINA RESULT:    -7.969      4.097      6.758
+REMARK INTER + INTRA:         -11.643
+REMARK INTER:                 -10.424
+REMARK INTRA:                  -1.219
+REMARK UNBOUND:                -0.879
+REMARK  Name = C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\output\68P_crystal_reference.pdb
+REMARK  8 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C10_1  and  C05_13
+REMARK    2  A    between atoms: C22_7  and  N03_11
+REMARK    3  A    between atoms: C24_8  and  C18_22
+REMARK    4  A    between atoms: N03_11  and  C12_19
+REMARK    5  A    between atoms: N03_11  and  C23_24
+REMARK    6  A    between atoms: C05_13  and  C06_14
+REMARK    7  A    between atoms: C06_14  and  C09_17
+REMARK    8  A    between atoms: C09_17  and  C12_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C13 68P A 701      38.557 178.689 142.336  0.00  0.00    -0.001 A 
+ATOM      2  C17 68P A 701      39.749 177.816 141.967  0.00  0.00    +0.010 A 
+ATOM      3  O02 68P A 701      38.293 182.558 142.252  0.00  0.00    -0.346 OA
+ATOM      4  C05 68P A 701      37.616 181.316 142.422  0.00  0.00    +0.130 C 
+ATOM      5  C07 68P A 701      38.624 180.222 142.162  0.00  0.00    +0.004 A 
+ATOM      6  C08 68P A 701      39.851 180.848 141.621  0.00  0.00    +0.006 A 
+ATOM      7  C11 68P A 701      39.610 182.296 141.594  0.00  0.00    +0.169 C 
+ATOM      8  C14 68P A 701      41.067 179.955 141.247  0.00  0.00    +0.008 A 
+ATOM      9  C18 68P A 701      41.000 178.442 141.440  0.00  0.00    +0.068 A 
+ENDROOT
+BRANCH   4  10
+ATOM     10  C10 68P A 701      36.513 181.209 141.407  0.00  0.00    +0.006 A 
+ATOM     11  C15 68P A 701      35.500 180.059 141.468  0.00  0.00    +0.001 A 
+ATOM     12  C20 68P A 701      35.255 182.136 139.259  0.00  0.00    +0.029 A 
+ATOM     13  C21 68P A 701      34.245 180.987 139.328  0.00  0.00    +0.140 A 
+ATOM     14  F01 68P A 701      33.257 180.894 138.421  0.00  0.00    -0.204 F 
+ATOM     15  C16 68P A 701      36.386 182.240 140.298  0.00  0.00    +0.001 A 
+ATOM     16  C19 68P A 701      34.368 179.949 140.429  0.00  0.00    +0.029 A 
+ENDBRANCH   4  10
+BRANCH   9  17
+ATOM     17  C24 68P A 701      42.178 177.533 141.080  0.00  0.00    +0.100 C 
+ATOM     18  N04 68P A 701      43.069 176.833 140.827  0.00  0.00    -0.191 NA
+ENDBRANCH   9  17
+BRANCH   4  19
+ATOM     19  C06 68P A 701      37.023 181.179 143.844  0.00  0.00    +0.037 C 
+BRANCH  19  20
+ATOM     20  C09 68P A 701      36.460 182.533 144.330  0.00  0.00    +0.020 C 
+BRANCH  20  21
+ATOM     21  C12 68P A 701      34.932 182.509 144.262  0.00  0.00    +0.072 C 
+BRANCH  21  23
+ATOM     22  C22 68P A 701      35.527 184.517 143.046  0.00  0.00    +0.090 C 
+ATOM     23  N03 68P A 701      34.421 183.656 143.545  0.00  0.00    -0.270 NA
+ATOM     24  C23 68P A 701      33.547 183.253 142.470  0.00  0.00    +0.090 C 
+ENDBRANCH  21  23
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH   4  19
+TORSDOF 6
+ENDMDL
+MODEL 3
+REMARK VINA RESULT:    -7.932      3.514      5.869
+REMARK INTER + INTRA:         -11.592
+REMARK INTER:                 -10.691
+REMARK INTRA:                  -0.901
+REMARK UNBOUND:                -0.879
+REMARK  Name = C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\output\68P_crystal_reference.pdb
+REMARK  8 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C10_1  and  C05_13
+REMARK    2  A    between atoms: C22_7  and  N03_11
+REMARK    3  A    between atoms: C24_8  and  C18_22
+REMARK    4  A    between atoms: N03_11  and  C12_19
+REMARK    5  A    between atoms: N03_11  and  C23_24
+REMARK    6  A    between atoms: C05_13  and  C06_14
+REMARK    7  A    between atoms: C06_14  and  C09_17
+REMARK    8  A    between atoms: C09_17  and  C12_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C13 68P A 701      36.931 179.551 142.134  0.00  0.00    -0.001 A 
+ATOM      2  C17 68P A 701      38.227 178.751 142.148  0.00  0.00    +0.010 A 
+ATOM      3  O02 68P A 701      36.482 183.396 141.895  0.00  0.00    -0.346 OA
+ATOM      4  C05 68P A 701      35.858 182.116 141.886  0.00  0.00    +0.130 C 
+ATOM      5  C07 68P A 701      36.958 181.084 141.956  0.00  0.00    +0.004 A 
+ATOM      6  C08 68P A 701      38.252 181.783 141.784  0.00  0.00    +0.006 A 
+ATOM      7  C11 68P A 701      37.947 183.213 141.658  0.00  0.00    +0.169 C 
+ATOM      8  C14 68P A 701      39.574 180.964 141.802  0.00  0.00    +0.008 A 
+ATOM      9  C18 68P A 701      39.539 179.451 141.998  0.00  0.00    +0.068 A 
+ENDROOT
+BRANCH   4  10
+ATOM     10  C10 68P A 701      35.109 181.939 140.595  0.00  0.00    +0.006 A 
+ATOM     11  C15 68P A 701      35.850 181.566 139.304  0.00  0.00    +0.001 A 
+ATOM     12  C20 68P A 701      32.832 181.946 139.227  0.00  0.00    +0.029 A 
+ATOM     13  C21 68P A 701      33.577 181.571 137.943  0.00  0.00    +0.140 A 
+ATOM     14  F01 68P A 701      32.907 181.411 136.788  0.00  0.00    -0.204 F 
+ATOM     15  C16 68P A 701      33.602 182.131 140.547  0.00  0.00    +0.001 A 
+ATOM     16  C19 68P A 701      35.084 181.383 137.980  0.00  0.00    +0.029 A 
+ENDBRANCH   4  10
+BRANCH   9  17
+ATOM     17  C24 68P A 701      40.821 178.614 142.017  0.00  0.00    +0.100 C 
+ATOM     18  N04 68P A 701      41.787 177.970 142.012  0.00  0.00    -0.191 NA
+ENDBRANCH   9  17
+BRANCH   4  19
+ATOM     19  C06 68P A 701      34.882 181.948 143.075  0.00  0.00    +0.037 C 
+BRANCH  19  20
+ATOM     20  C09 68P A 701      34.708 183.286 143.828  0.00  0.00    +0.020 C 
+BRANCH  20  21
+ATOM     21  C12 68P A 701      33.347 183.894 143.484  0.00  0.00    +0.072 C 
+BRANCH  21  23
+ATOM     22  C22 68P A 701      33.424 185.829 142.030  0.00  0.00    +0.090 C 
+ATOM     23  N03 68P A 701      33.416 185.339 143.434  0.00  0.00    -0.270 NA
+ATOM     24  C23 68P A 701      32.345 185.939 144.192  0.00  0.00    +0.090 C 
+ENDBRANCH  21  23
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH   4  19
+TORSDOF 6
+ENDMDL
+MODEL 4
+REMARK VINA RESULT:    -7.883      5.332      7.201
+REMARK INTER + INTRA:         -11.526
+REMARK INTER:                 -10.623
+REMARK INTRA:                  -0.903
+REMARK UNBOUND:                -0.879
+REMARK  Name = C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\output\68P_crystal_reference.pdb
+REMARK  8 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C10_1  and  C05_13
+REMARK    2  A    between atoms: C22_7  and  N03_11
+REMARK    3  A    between atoms: C24_8  and  C18_22
+REMARK    4  A    between atoms: N03_11  and  C12_19
+REMARK    5  A    between atoms: N03_11  and  C23_24
+REMARK    6  A    between atoms: C05_13  and  C06_14
+REMARK    7  A    between atoms: C06_14  and  C09_17
+REMARK    8  A    between atoms: C09_17  and  C12_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C13 68P A 701      38.540 178.733 142.319  0.00  0.00    -0.001 A 
+ATOM      2  C17 68P A 701      39.732 177.875 141.916  0.00  0.00    +0.010 A 
+ATOM      3  O02 68P A 701      38.239 182.599 142.282  0.00  0.00    -0.346 OA
+ATOM      4  C05 68P A 701      37.578 181.349 142.453  0.00  0.00    +0.130 C 
+ATOM      5  C07 68P A 701      38.590 180.267 142.161  0.00  0.00    +0.004 A 
+ATOM      6  C08 68P A 701      39.799 180.911 141.601  0.00  0.00    +0.006 A 
+ATOM      7  C11 68P A 701      39.544 182.356 141.595  0.00  0.00    +0.169 C 
+ATOM      8  C14 68P A 701      41.016 180.034 141.193  0.00  0.00    +0.008 A 
+ATOM      9  C18 68P A 701      40.966 178.518 141.371  0.00  0.00    +0.068 A 
+ENDROOT
+BRANCH   4  10
+ATOM     10  C10 68P A 701      36.455 181.243 141.459  0.00  0.00    +0.006 A 
+ATOM     11  C15 68P A 701      35.523 180.023 141.456  0.00  0.00    +0.001 A 
+ATOM     12  C20 68P A 701      35.074 182.240 139.421  0.00  0.00    +0.029 A 
+ATOM     13  C21 68P A 701      34.146 181.021 139.425  0.00  0.00    +0.140 A 
+ATOM     14  F01 68P A 701      33.141 180.928 138.537  0.00  0.00    -0.204 F 
+ATOM     15  C16 68P A 701      36.226 182.344 140.437  0.00  0.00    +0.001 A 
+ATOM     16  C19 68P A 701      34.371 179.914 140.439  0.00  0.00    +0.029 A 
+ENDBRANCH   4  10
+BRANCH   9  17
+ATOM     17  C24 68P A 701      42.145 177.624 140.977  0.00  0.00    +0.100 C 
+ATOM     18  N04 68P A 701      43.052 176.957 140.692  0.00  0.00    -0.191 NA
+ENDBRANCH   9  17
+BRANCH   4  19
+ATOM     19  C06 68P A 701      37.015 181.191 143.885  0.00  0.00    +0.037 C 
+BRANCH  19  20
+ATOM     20  C09 68P A 701      36.903 182.568 144.579  0.00  0.00    +0.020 C 
+BRANCH  20  21
+ATOM     21  C12 68P A 701      37.698 182.550 145.885  0.00  0.00    +0.072 C 
+BRANCH  21  23
+ATOM     22  C22 68P A 701      38.729 183.963 147.560  0.00  0.00    +0.090 C 
+ATOM     23  N03 68P A 701      38.327 183.829 146.134  0.00  0.00    -0.270 NA
+ATOM     24  C23 68P A 701      39.450 184.038 145.252  0.00  0.00    +0.090 C 
+ENDBRANCH  21  23
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH   4  19
+TORSDOF 6
+ENDMDL
+MODEL 5
+REMARK VINA RESULT:    -7.768      4.383      6.482
+REMARK INTER + INTRA:         -11.372
+REMARK INTER:                 -10.463
+REMARK INTRA:                  -0.909
+REMARK UNBOUND:                -0.879
+REMARK  Name = C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\output\68P_crystal_reference.pdb
+REMARK  8 active torsions:
+REMARK  status: ('A' for Active; 'I' for Inactive)
+REMARK    1  A    between atoms: C10_1  and  C05_13
+REMARK    2  A    between atoms: C22_7  and  N03_11
+REMARK    3  A    between atoms: C24_8  and  C18_22
+REMARK    4  A    between atoms: N03_11  and  C12_19
+REMARK    5  A    between atoms: N03_11  and  C23_24
+REMARK    6  A    between atoms: C05_13  and  C06_14
+REMARK    7  A    between atoms: C06_14  and  C09_17
+REMARK    8  A    between atoms: C09_17  and  C12_19
+REMARK                            x       y       z     vdW  Elec       q    Type
+REMARK                         _______ _______ _______ _____ _____    ______ ____
+ROOT
+ATOM      1  C13 68P A 701      39.963 182.007 141.903  0.00  0.00    -0.001 A 
+ATOM      2  C17 68P A 701      40.866 180.846 141.509  0.00  0.00    +0.010 A 
+ATOM      3  O02 68P A 701      36.282 181.885 143.120  0.00  0.00    -0.346 OA
+ATOM      4  C05 68P A 701      37.448 182.677 142.913  0.00  0.00    +0.130 C 
+ATOM      5  C07 68P A 701      38.539 181.746 142.438  0.00  0.00    +0.004 A 
+ATOM      6  C08 68P A 701      38.049 180.357 142.581  0.00  0.00    +0.006 A 
+ATOM      7  C11 68P A 701      36.675 180.443 143.090  0.00  0.00    +0.169 C 
+ATOM      8  C14 68P A 701      38.972 179.173 142.176  0.00  0.00    +0.008 A 
+ATOM      9  C18 68P A 701      40.372 179.441 141.629  0.00  0.00    +0.068 A 
+ENDROOT
+BRANCH   4  10
+ATOM     10  C10 68P A 701      37.870 183.289 144.219  0.00  0.00    +0.006 A 
+ATOM     11  C15 68P A 701      37.594 182.572 145.547  0.00  0.00    +0.001 A 
+ATOM     12  C20 68P A 701      39.011 185.264 145.581  0.00  0.00    +0.029 A 
+ATOM     13  C21 68P A 701      38.735 184.541 146.902  0.00  0.00    +0.140 A 
+ATOM     14  F01 68P A 701      39.115 185.089 148.070  0.00  0.00    -0.204 F 
+ATOM     15  C16 68P A 701      38.574 184.636 144.245  0.00  0.00    +0.001 A 
+ATOM     16  C19 68P A 701      38.027 183.198 146.886  0.00  0.00    +0.029 A 
+ENDBRANCH   4  10
+BRANCH   9  17
+ATOM     17  C24 68P A 701      41.307 178.299 141.223  0.00  0.00    +0.100 C 
+ATOM     18  N04 68P A 701      41.999 177.423 140.904  0.00  0.00    -0.191 NA
+ENDBRANCH   9  17
+BRANCH   4  19
+ATOM     19  C06 68P A 701      37.201 183.796 141.874  0.00  0.00    +0.037 C 
+BRANCH  19  20
+ATOM     20  C09 68P A 701      35.716 184.220 141.876  0.00  0.00    +0.020 C 
+BRANCH  20  21
+ATOM     21  C12 68P A 701      35.145 184.097 140.462  0.00  0.00    +0.072 C 
+BRANCH  21  23
+ATOM     22  C22 68P A 701      34.110 186.138 141.255  0.00  0.00    +0.090 C 
+ATOM     23  N03 68P A 701      34.447 185.302 140.071  0.00  0.00    -0.270 NA
+ATOM     24  C23 68P A 701      35.205 186.053 139.100  0.00  0.00    +0.090 C 
+ENDBRANCH  21  23
+ENDBRANCH  20  21
+ENDBRANCH  19  20
+ENDBRANCH   4  19
+TORSDOF 6
+ENDMDL

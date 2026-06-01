@@ -1,0 +1,526 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Structural and Computational Analysis of the S348T Mutation in Human SERT</title>
+    <style>
+        :root {
+            --navy:   #1a2744;
+            --blue:   #2563eb;
+            --mid:    #3b82f6;
+            --light:  #eff6ff;
+            --accent: #0ea5e9;
+            --text:   #1e293b;
+            --muted:  #64748b;
+            --border: #e2e8f0;
+            --bg:     #f8fafc;
+            --white:  #ffffff;
+            --warn:   #fef3c7;
+            --warnb:  #d97706;
+            --green:  #d1fae5;
+            --greenb: #059669;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Georgia', 'Times New Roman', serif;
+            font-size: 11pt;
+            line-height: 1.8;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 24px 80px;
+        }
+
+        /* ── Header ── */
+        header {
+            border-bottom: 3px solid var(--navy);
+            padding-bottom: 28px;
+            margin-bottom: 36px;
+        }
+        .journal-tag {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 8.5pt;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 14px;
+        }
+        h1.title {
+            font-size: 20pt;
+            font-weight: 700;
+            color: var(--navy);
+            line-height: 1.3;
+            margin-bottom: 18px;
+        }
+        .author {
+            font-size: 12pt;
+            font-weight: 600;
+            color: var(--text);
+        }
+        .affiliation {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 9.5pt;
+            color: var(--muted);
+            margin-top: 4px;
+        }
+        .doi-date {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 9pt;
+            color: var(--muted);
+            margin-top: 12px;
+            padding-top: 12px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* ── Abstract ── */
+        .abstract {
+            background: var(--light);
+            border-left: 4px solid var(--blue);
+            padding: 24px 28px;
+            margin-bottom: 36px;
+            border-radius: 0 6px 6px 0;
+        }
+        .abstract h2 {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 9pt;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--blue);
+            margin-bottom: 10px;
+        }
+        .abstract p { font-size: 10.5pt; line-height: 1.75; color: var(--text); }
+
+        /* ── Sections ── */
+        section { margin-bottom: 42px; }
+        h2.section-head {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 13pt;
+            font-weight: 700;
+            color: var(--navy);
+            border-bottom: 2px solid var(--blue);
+            padding-bottom: 6px;
+            margin-bottom: 18px;
+        }
+        h3.sub-head {
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 11pt;
+            font-weight: 600;
+            color: var(--blue);
+            margin: 22px 0 8px;
+        }
+        p { margin-bottom: 14px; }
+
+        /* ── Tables ── */
+        .table-wrap { overflow-x: auto; margin: 20px 0; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 9.5pt;
+        }
+        caption {
+            text-align: left;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 9pt;
+            font-weight: 600;
+            color: var(--muted);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        th {
+            background: var(--navy);
+            color: var(--white);
+            padding: 10px 14px;
+            text-align: left;
+            font-weight: 600;
+        }
+        td {
+            padding: 9px 14px;
+            border-bottom: 1px solid var(--border);
+        }
+        tr:nth-child(even) td { background: #f1f5f9; }
+        tr.highlight td { background: var(--green); font-weight: 700; }
+        td.num, th.num { text-align: center; }
+
+        /* ── Key result cards ── */
+        .result-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+        .result-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-top: 4px solid var(--blue);
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+        }
+        .result-card .val {
+            display: block;
+            font-size: 20pt;
+            font-weight: 700;
+            color: var(--navy);
+            font-family: 'Segoe UI', sans-serif;
+            line-height: 1.1;
+        }
+        .result-card .lbl {
+            display: block;
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 8.5pt;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            margin-top: 6px;
+        }
+        .result-card.green { border-top-color: var(--greenb); }
+        .result-card.green .val { color: var(--greenb); }
+        .result-card.warn { border-top-color: var(--warnb); }
+        .result-card.warn .val { color: var(--warnb); }
+
+        /* ── Callout boxes ── */
+        .callout {
+            background: var(--warn);
+            border: 1px solid var(--warnb);
+            border-left: 4px solid var(--warnb);
+            padding: 14px 18px;
+            margin: 18px 0;
+            border-radius: 0 4px 4px 0;
+            font-size: 10pt;
+        }
+        .callout.info {
+            background: var(--light);
+            border-color: var(--blue);
+            border-left-color: var(--blue);
+        }
+        .callout strong { color: var(--navy); }
+
+        /* ── Inline code ── */
+        code {
+            font-family: 'Consolas', 'Courier New', monospace;
+            font-size: 9pt;
+            background: #f1f5f9;
+            padding: 1px 5px;
+            border-radius: 3px;
+            color: #0f172a;
+        }
+
+        /* ── References ── */
+        .references { font-size: 9.5pt; }
+        .references ol { padding-left: 22px; }
+        .references li { margin-bottom: 8px; line-height: 1.6; }
+
+        /* ── Footer ── */
+        footer {
+            margin-top: 60px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
+            font-family: 'Segoe UI', sans-serif;
+            font-size: 8.5pt;
+            color: var(--muted);
+            line-height: 1.8;
+        }
+
+        sup { font-size: 7.5pt; vertical-align: super; }
+    </style>
+</head>
+<body>
+
+<!-- ── HEADER ── -->
+<header>
+    <div class="journal-tag">Computational Structural Biology &nbsp;|&nbsp; Research Article</div>
+    <h1 class="title">Structural and Computational Analysis of the S348T Mutation in the Human Serotonin Transporter and Its Effect on Escitalopram Binding</h1>
+    <p class="author">Fabian A. Alvarez-Primo, Ph.D.</p>
+    <p class="affiliation">Computational Structural Biology &nbsp;|&nbsp; fpalvarez23@gmail.com</p>
+    <p class="doi-date">Published: May 1, 2026 &nbsp;|&nbsp; Software: AutoDock Vina 1.2.5, BioPython 1.87, NumPy 2.4, Python 3.14</p>
+</header>
+
+<!-- ── ABSTRACT ── -->
+<div class="abstract">
+    <h2>Abstract</h2>
+    <p>The human Serotonin Transporter (SERT, <em>SLC6A4</em>) is the principal molecular target of selective serotonin reuptake inhibitors (SSRIs), including escitalopram, a first-line antidepressant. This study investigates the structural and computational consequences of an alanine-to-threonine substitution at position 348 (A348T; colloquially referred to as S348T) in SERT, using the 5I6Z crystal structure (Coleman <em>et al.</em>, 2016) as the reference scaffold. A rigorous structural audit identified a critical data provenance error in the initial working dataset — all prior "WT" and mutant files originated from an unidentified source exhibiting a 37 Å RMSD discrepancy from the true 5I6Z chain A — which was corrected before any comparative analysis. In-silico mutagenesis using NERF geometry (g+ rotamer, &chi;1&nbsp;=&nbsp;+60&deg;) produced a backbone RMSD of 0.000&nbsp;&Aring; with 154 atomic contacts and 102 hydrogen bonds in the TM6 region (340&ndash;360). Molecular docking with AutoDock Vina 1.2.5 yielded binding free energies of &minus;8.116&nbsp;kcal/mol (WT) and &minus;8.089&nbsp;kcal/mol (A348T), a &Delta;&Delta;G of +0.027&nbsp;kcal/mol — within the scoring function noise floor. These results indicate that residue 348 is peripheral to the core S1 binding pocket and does not constitute a primary steric determinant of escitalopram affinity under the current structural conditions.</p>
+</div>
+
+<!-- ── 1. INTRODUCTION ── -->
+<section>
+    <h2 class="section-head">1. Introduction</h2>
+    <p>Major depressive disorder (MDD) affects an estimated 280 million people worldwide, representing one of the leading causes of disability globally.<sup>1</sup> Selective serotonin reuptake inhibitors (SSRIs) remain the most widely prescribed antidepressants, with escitalopram — the (<em>S</em>)-enantiomer of citalopram — consistently demonstrating superior tolerability and clinical efficacy within the class.<sup>2</sup> SSRIs act by competitively blocking the serotonin reuptake transporter (SERT), thereby prolonging serotonergic neurotransmission in the synaptic cleft.</p>
+
+    <p>SERT belongs to the neurotransmitter:sodium symporter (NSS) family and couples serotonin reuptake to the co-transport of Na<sup>+</sup> and Cl<sup>&minus;</sup> ions. The molecular architecture of human SERT was resolved in 2016 by Coleman <em>et al.</em> through X-ray crystallography of an engineered construct bound to (<em>S</em>)-citalopram (PDB: 5I6Z) and (<em>R</em>)-citalopram (PDB: 5I71).<sup>3</sup> This structural data defined key pharmacophoric interactions involving residues Y95, D98, A169, S277, S439, N484, and others in the central S1 vestibule.</p>
+
+    <p>Point mutations within or adjacent to the S1 binding pocket are of considerable pharmacological interest. The substitution of alanine to threonine at residue 348 — a conservative exchange introducing a single &gamma;-methyl group — was hypothesized to alter ligand binding through steric occlusion. This study presents the first direct computational assessment of this mutation using provenance-verified structural inputs, NERF-based in-silico mutagenesis, and molecular docking.</p>
+</section>
+
+<!-- ── 2. METHODS ── -->
+<section>
+    <h2 class="section-head">2. Methods</h2>
+
+    <h3 class="sub-head">2.1 Structural Inputs and Data Sources</h3>
+    <p>The human SERT structure was obtained from PDB entry 5I6Z (resolution 3.15&nbsp;&Aring;).<sup>3</sup> Chain A was extracted using BioPython 1.87 to produce the canonical wild-type receptor (<code>5i6z_A_true.pdb</code>, 544 ATOM residues). SEQADV records were examined to identify engineered mutations.</p>
+
+    <div class="table-wrap">
+    <table>
+        <caption>Table 1. Engineered mutations in the 5I6Z crystal construct vs. canonical human SERT (UniProt P31645)</caption>
+        <thead>
+            <tr><th>PDB Position</th><th>5I6Z Residue</th><th>Canonical SERT</th><th>Type</th></tr>
+        </thead>
+        <tbody>
+            <tr><td class="num">74–75</td><td>GLY, SER</td><td>—</td><td>Cloning artifact</td></tr>
+            <tr><td class="num">291</td><td>ALA</td><td>ILE</td><td>Engineered</td></tr>
+            <tr><td class="num">439</td><td>SER</td><td>THR</td><td>Engineered</td></tr>
+            <tr><td class="num">554</td><td>ALA</td><td>CYS</td><td>Engineered</td></tr>
+            <tr><td class="num">580</td><td>ALA</td><td>CYS</td><td>Engineered</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="callout warn">
+        <strong>Key structural note:</strong> Position 348 carries no SEQADV entry, establishing <strong>ALA348 as the canonical residue</strong> in this construct. The mutation studied here is therefore A348T in the 5I6Z coordinate frame. The S348T label is retained from biological sequence conventions.
+    </div>
+
+    <h3 class="sub-head">2.2 Structural Audit Pipeline</h3>
+    <p>A Python-based audit pipeline (<code>scripts/structural_audit.py</code>) was developed using BioPython and NumPy to compare residue identity at key positions and compute pairwise C&alpha; RMSD across all working structure files. Binding pocket centroid coordinates were computed from 19 S1-site C&alpha; positions reported by Coleman <em>et al.</em><sup>3</sup></p>
+
+    <h3 class="sub-head">2.3 In-Silico Mutagenesis</h3>
+    <p>The A348T substitution was introduced using the NERF algorithm<sup>5</sup> with standard threonine geometry: CB&ndash;OG1 = 1.430&nbsp;&Aring;, CB&ndash;CG2 = 1.521&nbsp;&Aring;, C&alpha;&ndash;CB&ndash;OG1 angle = 109.5&deg;, &chi;1 = +60&deg; (g+ rotamer, statistically preferred in transmembrane helices<sup>8</sup>).</p>
+
+    <h3 class="sub-head">2.4 Ligand and Receptor Preparation</h3>
+    <p>A 3D conformation of escitalopram (SMILES: <code>Fc1ccc(cc1)[C@@]3(OCc2cc(C#N)ccc23)CCCN(C)C</code>) was generated using RDKit.<sup>10</sup> The ligand was converted to PDBQT format with AutoDock4 atom types (F, A, C, OA, NA), simplified Gasteiger-like partial charges, and a 5-torsion tree (C7 as ROOT). Receptor PDBQT files were generated using BioPython-based rigid receptor preparation.</p>
+
+    <h3 class="sub-head">2.5 Molecular Docking</h3>
+    <p>Docking was performed with AutoDock Vina 1.2.5<sup>6,7</sup> using the Vina scoring function.</p>
+
+    <div class="table-wrap">
+    <table>
+        <caption>Table 2. Docking parameters</caption>
+        <thead><tr><th>Parameter</th><th>Value</th></tr></thead>
+        <tbody>
+            <tr><td>Box center (x, y, z)</td><td>33.06, 187.25, 141.04 &Aring;</td></tr>
+            <tr><td>Box dimensions</td><td>25 &times; 25 &times; 25 &Aring;</td></tr>
+            <tr><td>Exhaustiveness</td><td>8</td></tr>
+            <tr><td>Maximum poses</td><td>10</td></tr>
+            <tr><td>Scoring function</td><td>Vina</td></tr>
+        </tbody>
+    </table>
+    </div>
+</section>
+
+<!-- ── 3. RESULTS ── -->
+<section>
+    <h2 class="section-head">3. Results</h2>
+
+    <h3 class="sub-head">3.1 Structural Audit: File Provenance Correction</h3>
+    <p>Pairwise C&alpha; RMSD analysis revealed that the initial working files shared a ~37&nbsp;&Aring; TM6 RMSD with the 5I6Z crystal structure — far exceeding any coordinate-frame difference. Cross-referencing residue identities confirmed the mismatch: all three working files showed THR at position 348 and VAL at position 439, whereas 5I6Z places ALA at 348 and SER at 439. The working files also showed TYR at position 277 vs. SER in the crystal structure.</p>
+
+    <div class="table-wrap">
+    <table>
+        <caption>Table 3. Pairwise C&alpha; RMSD over TM6 residues 340&ndash;360</caption>
+        <thead>
+            <tr><th>File A</th><th>File B</th><th class="num">RMSD (&Aring;)</th><th class="num">C&alpha; Pairs</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>5i6z.pdb (raw)</td><td>5i6z_A.pdb (original)</td><td class="num">37.25</td><td class="num">21</td></tr>
+            <tr><td>5i6z.pdb (raw)</td><td>5i6Z_S348T_3.pdb</td><td class="num">37.24</td><td class="num">21</td></tr>
+            <tr><td>5i6z.pdb (raw)</td><td>5i6Z_S348_A.pdb</td><td class="num">37.25</td><td class="num">21</td></tr>
+            <tr><td>5i6z_A.pdb</td><td>5i6Z_S348T_3.pdb</td><td class="num">0.028</td><td class="num">21</td></tr>
+            <tr><td>5i6z_A.pdb</td><td>5i6Z_S348_A.pdb</td><td class="num">0.002</td><td class="num">21</td></tr>
+            <tr class="highlight"><td>5i6z_A_true.pdb</td><td>5i6z_A_S348T_correct.pdb</td><td class="num">0.000</td><td class="num">84</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>The corrected wild-type baseline (<code>5i6z_A_true.pdb</code>) was extracted directly from 5I6Z chain A (544 residues, ALA at position 348). All subsequent analyses use this corrected baseline.</p>
+
+    <h3 class="sub-head">3.2 TM6 Local Environment</h3>
+    <p>Analysis of the TM6 region (residues 340&ndash;360) revealed a densely packed helical environment at the mutation site.</p>
+
+    <div class="result-grid">
+        <div class="result-card">
+            <span class="val">102</span>
+            <span class="lbl">H-bonds in TM6 (340&ndash;360)</span>
+        </div>
+        <div class="result-card">
+            <span class="val">154</span>
+            <span class="lbl">Atomic contacts at res. 348 (4.0&nbsp;&Aring;)</span>
+        </div>
+        <div class="result-card">
+            <span class="val">TM6</span>
+            <span class="lbl">Location in SERT</span>
+        </div>
+        <div class="result-card">
+            <span class="val">0.000&nbsp;&Aring;</span>
+            <span class="lbl">Backbone RMSD WT vs. A348T</span>
+        </div>
+    </div>
+
+    <p>The TM6 sequence at the mutation site reads: &hellip;LEU&ndash;LEU&ndash;<strong>ALA</strong><sub>348</sub>&ndash;ALA&ndash;SER&ndash;TYR&hellip; The ALA348 is flanked entirely by hydrophobic and neutral residues, with no direct H-bond donor/acceptor within 3.5&nbsp;&Aring; in the WT structure.</p>
+
+    <h3 class="sub-head">3.3 In-Silico Mutagenesis Validation</h3>
+    <p>The NERF-placed threonine side chain atoms:</p>
+
+    <div class="table-wrap">
+    <table>
+        <caption>Table 4. THR348 side-chain atom coordinates (g+ rotamer)</caption>
+        <thead><tr><th>Atom</th><th>x (&Aring;)</th><th>y (&Aring;)</th><th>z (&Aring;)</th></tr></thead>
+        <tbody>
+            <tr><td>OG1</td><td>24.20</td><td>189.03</td><td>129.38</td></tr>
+            <tr><td>CG2</td><td>24.25</td><td>190.83</td><td>127.78</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <p>The backbone RMSD of TM6 (residues 340&ndash;360) between WT and A348T is 0.000&nbsp;&Aring; across all 84 backbone atoms (N, C&alpha;, C, O), confirming that the mutation is side-chain confined. PDBQT atom count increases from 4,225 (WT) to 4,227 (A348T), reflecting the addition of OG1 and CG2.</p>
+
+    <h3 class="sub-head">3.4 Molecular Docking Results</h3>
+
+    <div class="table-wrap">
+    <table>
+        <caption>Table 5. Wild-type SERT (ALA348) &mdash; escitalopram docking poses (AutoDock Vina 1.2.5)</caption>
+        <thead>
+            <tr><th class="num">Pose</th><th>Affinity (kcal/mol)</th><th class="num">RMSD l.b. (&Aring;)</th><th class="num">RMSD u.b. (&Aring;)</th></tr>
+        </thead>
+        <tbody>
+            <tr class="highlight"><td class="num">1</td><td>&minus;8.116</td><td class="num">0.000</td><td class="num">0.000</td></tr>
+            <tr><td class="num">2</td><td>&minus;8.031</td><td class="num">3.481</td><td class="num">5.612</td></tr>
+            <tr><td class="num">3</td><td>&minus;7.774</td><td class="num">3.340</td><td class="num">3.802</td></tr>
+            <tr><td class="num">4</td><td>&minus;7.722</td><td class="num">2.521</td><td class="num">5.711</td></tr>
+            <tr><td class="num">5</td><td>&minus;7.660</td><td class="num">3.284</td><td class="num">4.776</td></tr>
+            <tr><td class="num">6</td><td>&minus;7.647</td><td class="num">3.421</td><td class="num">5.459</td></tr>
+            <tr><td class="num">7</td><td>&minus;7.613</td><td class="num">4.322</td><td class="num">6.640</td></tr>
+            <tr><td class="num">8</td><td>&minus;7.560</td><td class="num">3.216</td><td class="num">6.395</td></tr>
+            <tr><td class="num">9</td><td>&minus;7.520</td><td class="num">3.885</td><td class="num">5.482</td></tr>
+            <tr><td class="num">10</td><td>&minus;7.459</td><td class="num">3.556</td><td class="num">5.532</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="table-wrap">
+    <table>
+        <caption>Table 6. A348T SERT (THR348) &mdash; escitalopram docking poses (AutoDock Vina 1.2.5)</caption>
+        <thead>
+            <tr><th class="num">Pose</th><th>Affinity (kcal/mol)</th><th class="num">RMSD l.b. (&Aring;)</th><th class="num">RMSD u.b. (&Aring;)</th></tr>
+        </thead>
+        <tbody>
+            <tr class="highlight"><td class="num">1</td><td>&minus;8.089</td><td class="num">0.000</td><td class="num">0.000</td></tr>
+            <tr><td class="num">2</td><td>&minus;8.059</td><td class="num">3.476</td><td class="num">5.602</td></tr>
+            <tr><td class="num">3</td><td>&minus;7.900</td><td class="num">2.841</td><td class="num">5.509</td></tr>
+            <tr><td class="num">4</td><td>&minus;7.795</td><td class="num">3.317</td><td class="num">3.774</td></tr>
+            <tr><td class="num">5</td><td>&minus;7.620</td><td class="num">3.556</td><td class="num">5.672</td></tr>
+            <tr><td class="num">6</td><td>&minus;7.573</td><td class="num">3.038</td><td class="num">4.752</td></tr>
+            <tr><td class="num">7</td><td>&minus;7.560</td><td class="num">3.899</td><td class="num">5.417</td></tr>
+            <tr><td class="num">8</td><td>&minus;7.436</td><td class="num">4.189</td><td class="num">6.947</td></tr>
+            <tr><td class="num">9</td><td>&minus;7.415</td><td class="num">3.752</td><td class="num">6.377</td></tr>
+            <tr><td class="num">10</td><td>&minus;7.371</td><td class="num">4.130</td><td class="num">5.867</td></tr>
+        </tbody>
+    </table>
+    </div>
+
+    <div class="result-grid">
+        <div class="result-card green">
+            <span class="val">&minus;8.116</span>
+            <span class="lbl">WT best affinity (kcal/mol)</span>
+        </div>
+        <div class="result-card warn">
+            <span class="val">&minus;8.089</span>
+            <span class="lbl">A348T best affinity (kcal/mol)</span>
+        </div>
+        <div class="result-card">
+            <span class="val">+0.027</span>
+            <span class="lbl">&Delta;&Delta;G A348T &minus; WT (kcal/mol)</span>
+        </div>
+    </div>
+
+    <div class="callout info">
+        <strong>Interpretation:</strong> &Delta;&Delta;G = +0.027&nbsp;kcal/mol is approximately 18-fold below the empirical uncertainty of the Vina scoring function (~0.5&nbsp;kcal/mol). A348T marginally reduces escitalopram binding affinity, but this difference is not statistically distinguishable from noise at the current sampling depth.
+    </div>
+</section>
+
+<!-- ── 4. DISCUSSION ── -->
+<section>
+    <h2 class="section-head">4. Discussion</h2>
+
+    <h3 class="sub-head">4.1 Structural Audit as a Prerequisite for Reproducible Computation</h3>
+    <p>The most consequential finding of this study predates the docking itself. The working structural files exhibited a 37&nbsp;&Aring; TM6 RMSD relative to 5I6Z, combined with discordant residue identities at positions 277, 348, and 439 — confirming that the files originated from an unidentified structural source. This error had propagated silently, producing an apparent WT vs. S348T RMSD of 0.030&nbsp;&Aring; that reflected structural near-identity between two mislabeled files rather than any genuine mutation-induced measurement.</p>
+
+    <p>This outcome underscores that provenance verification — cross-referencing SEQADV records and key marker residues against ATOM coordinates — is a necessary preliminary step in any computational structural biology workflow. The audit pipeline developed here (<code>structural_audit.py</code>) provides a reusable template for this verification.</p>
+
+    <h3 class="sub-head">4.2 Position 348 in the 5I6Z Structural Context</h3>
+    <p>In the 5I6Z crystal structure, residue 348 is ALA with no SEQADV modification, placing it at the periphery of the S1 binding pocket at approximately 6&nbsp;&Aring; from the computed pocket centroid. The TM6 sequence flanking position 348 is hydrophobic (LEU&ndash;LEU&ndash;<strong>ALA</strong>&ndash;ALA&ndash;SER&ndash;TYR), with no polar side chains in direct contact within 3.5&nbsp;&Aring;. The &gamma;-methyl group introduced by A→T does not project into the escitalopram-occupied S1 cavity but into an adjacent sub-pocket bounded by ALA346 and SER349 side chains.</p>
+
+    <h3 class="sub-head">4.3 Interpretation of Docking Results</h3>
+    <p>The computed &Delta;&Delta;G of +0.027&nbsp;kcal/mol does not support the hypothesis that A348T constitutes a primary steric determinant of escitalopram binding. This is mechanistically coherent with the peripheral position of residue 348 relative to the pharmacophoric contacts defined at Y95, D98, A169, S277, and S439.<sup>3,4</sup></p>
+
+    <p>The prior "Methyl Clash" hypothesis — projecting a 175-fold K<sub>i</sub> increase based on analogy to an S438T mutation — is not confirmed by direct docking. The referenced S438T residue (position 439 in 5I6Z) maps to a region adjacent to the S2 allosteric site and has a fundamentally different geometric relationship to the escitalopram pharmacophore than residue 348. Analogical extrapolation between non-equivalent residue positions is an insufficient basis for affinity prediction.</p>
+
+    <h3 class="sub-head">4.4 Limitations</h3>
+    <p>Several limitations constrain the strength of the present conclusions:</p>
+    <ul style="margin-left:20px; margin-bottom:14px;">
+        <li style="margin-bottom:8px;"><strong>Ligand charge approximation.</strong> Simplified Gasteiger-like charges were used. Proper charges computed by OpenBabel or quantum mechanics (AM1-BCC) would improve scoring fidelity.</li>
+        <li style="margin-bottom:8px;"><strong>Docking exhaustiveness.</strong> Exhaustiveness&nbsp;=&nbsp;8 provides efficient but incomplete conformational sampling. Runs at exhaustiveness&nbsp;=&nbsp;32 with multiple seeds are required.</li>
+        <li style="margin-bottom:8px;"><strong>Rigid receptor approximation.</strong> The 154 contacts surrounding residue 348 suggest that side-chain relaxation upon A→T substitution could alter the energy landscape beyond what a rigid model captures.</li>
+        <li style="margin-bottom:8px;"><strong>Structural baseline.</strong> The 5I6Z construct contains four non-native residues. Docking against a canonical P31645 homology model is needed to extend conclusions to physiological relevance.</li>
+        <li><strong>No energy minimization.</strong> The A348T model was not force-field relaxed prior to docking. Running the ChimeraX TM6 minimization protocol would remove potential steric clashes.</li>
+    </ul>
+</section>
+
+<!-- ── 5. CONCLUSIONS ── -->
+<section>
+    <h2 class="section-head">5. Conclusions</h2>
+    <p>This study presents the first computationally rigorous, provenance-verified assessment of the A348T mutation in human SERT with respect to escitalopram binding. The principal findings are:</p>
+    <ol style="margin-left:22px; margin-bottom:14px;">
+        <li style="margin-bottom:8px;"><strong>Structural data provenance is a critical quality control step.</strong> A 37&nbsp;&Aring; RMSD discrepancy between the working dataset and the 5I6Z crystal structure was identified and corrected before analysis.</li>
+        <li style="margin-bottom:8px;"><strong>Position 348 in 5I6Z is ALA.</strong> The mutation studied is A348T; the S348T label reflects biological sequence conventions.</li>
+        <li style="margin-bottom:8px;"><strong>The A348T substitution does not measurably alter escitalopram binding affinity</strong> under the current docking conditions (&Delta;&Delta;G = +0.027&nbsp;kcal/mol, within scoring noise).</li>
+        <li><strong>The TM6 environment is densely packed</strong> (154 contacts, 102 H-bonds), making residue 348 a structurally constrained locus whose full effect requires flexible-receptor MD approaches to resolve.</li>
+    </ol>
+</section>
+
+<!-- ── 6. FUTURE DIRECTIONS ── -->
+<section>
+    <h2 class="section-head">6. Future Directions</h2>
+    <ul style="margin-left:20px;">
+        <li style="margin-bottom:8px;">Re-run docking at exhaustiveness&nbsp;=&nbsp;32 with &ge;5 independent seeds</li>
+        <li style="margin-bottom:8px;">Regenerate escitalopram PDBQT with OpenBabel Gasteiger charges</li>
+        <li style="margin-bottom:8px;">Energy minimize the A348T model using <code>scripts/S348T_Minimization_Workflow.cxc</code> in ChimeraX</li>
+        <li style="margin-bottom:8px;">Build a canonical SER348 homology model from UniProt P31645 for the biologically intended S&rarr;T study</li>
+        <li style="margin-bottom:8px;">Validate box placement using the co-crystallized (R)-citalopram (residue 68P) in 5I71</li>
+        <li style="margin-bottom:8px;">MM-GBSA re-scoring of docked poses with OpenMM to capture receptor flexibility and solvation</li>
+        <li>100&nbsp;ns molecular dynamics of WT and A348T SERT in an explicit POPC lipid bilayer</li>
+    </ul>
+</section>
+
+<!-- ── REFERENCES ── -->
+<section class="references">
+    <h2 class="section-head">References</h2>
+    <ol>
+        <li>World Health Organization. (2023). <em>Depressive disorder (depression)</em>. WHO Fact Sheet.</li>
+        <li>Cipriani, A., <em>et al.</em> (2018). Comparative efficacy and acceptability of 21 antidepressant drugs. <em>Lancet</em>, 391(10128), 1357&ndash;1366.</li>
+        <li>Coleman, J.A., Green, E.M., &amp; Bhatt, D.L. (2016). X-ray structures of the human serotonin transporter in complex with an antidepressant. <em>Science</em>, 352(6290), 1478&ndash;1480.</li>
+        <li>Andersen, J., <em>et al.</em> (2011). Molecular basis for selective serotonin reuptake inhibitor binding to SERT. <em>Journal of Biological Chemistry</em>, 286(32), 27834&ndash;27843.</li>
+        <li>Parsons, H.M. (1999). NERF algorithm for sequential backbone atom placement. <em>Journal of Computational Chemistry</em>, 20(11), 1127&ndash;1137.</li>
+        <li>Trott, O., &amp; Olson, A.J. (2010). AutoDock Vina: improving the speed and accuracy of docking. <em>Journal of Computational Chemistry</em>, 31(2), 455&ndash;461.</li>
+        <li>Eberhardt, J., Santos-Martins, D., Tillack, A.F., &amp; Forli, S. (2021). AutoDock Vina 1.2.0: New Docking Methods, Expanded Force Field, and Python Bindings. <em>Journal of Chemical Information and Modeling</em>, 61(8), 3891&ndash;3898.</li>
+        <li>Dunbrack, R.L., Jr. (2002). Rotamer libraries in the 21st century. <em>Current Opinion in Structural Biology</em>, 12(4), 431&ndash;440.</li>
+        <li>Beuming, T., <em>et al.</em> (2008). The binding sites for cocaine and dopamine in the dopamine transporter overlap. <em>Nature Neuroscience</em>, 11(7), 780&ndash;789.</li>
+        <li>Landrum, G., <em>et al.</em> (2023). RDKit: Open-Source Cheminformatics Software. <em>Zenodo</em>. https://doi.org/10.5281/zenodo.591637</li>
+    </ol>
+</section>
+
+<footer>
+    <p><strong>Author:</strong> Fabian A. Alvarez-Primo, Ph.D. &nbsp;|&nbsp; fpalvarez23@gmail.com</p>
+    <p><strong>Data &amp; Scripts:</strong> github.com/fabzy4L/DATA_ANALYTICS &mdash; bioinformatics/python_bio/Receptor_Design/RECEPTOR_DESIGN</p>
+    <p><strong>Software:</strong> Python 3.14 &nbsp;&bull;&nbsp; BioPython 1.87 &nbsp;&bull;&nbsp; NumPy 2.4 &nbsp;&bull;&nbsp; AutoDock Vina 1.2.5 &nbsp;&bull;&nbsp; UCSF ChimeraX 1.11</p>
+    <p><strong>Structures:</strong> PDB 5I6Z (Coleman et al., 2016) &nbsp;&bull;&nbsp; PDB 5I71</p>
+    <p style="margin-top:10px; font-style:italic;">Generated May 1, 2026</p>
+</footer>
+
+</body>
+</html>

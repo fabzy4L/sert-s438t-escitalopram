@@ -1,0 +1,211 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>S348T Technical Impact Report</title>
+    <style>
+        :root {
+            --primary: #2c3e50;
+            --secondary: #34495e;
+            --accent: #3498db;
+            --bg: #f4f7f6;
+            --white: #ffffff;
+            --text: #333333;
+            --border: #e2e8f0;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background-color: var(--bg);
+        }
+        header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+            border-radius: 8px 8px 0 0;
+            margin-bottom: 0;
+        }
+        .container {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        h1 { margin: 0; font-size: 2rem; letter-spacing: 1px; }
+        h2 {
+            color: var(--primary);
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 10px;
+            margin-top: 40px;
+            font-size: 1.5rem;
+        }
+        h3 { color: var(--secondary); margin-top: 25px; font-size: 1.2rem; }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        th {
+            background-color: #f8fafc;
+            color: var(--secondary);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .stat-card {
+            background: #f1f5f9;
+            padding: 20px;
+            border-radius: 6px;
+            text-align: center;
+            border-top: 4px solid var(--accent);
+        }
+        .stat-value {
+            display: block;
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--accent);
+        }
+        .stat-label {
+            font-size: 0.8rem;
+            color: #64748b;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        .logic-box {
+            background-color: #fffaf0;
+            border: 1px solid #feebc8;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 20px 0;
+        }
+        .code-block {
+            background: #1e293b;
+            color: #f8fafc;
+            padding: 20px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+            font-size: 0.9rem;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: #94a3b8;
+            margin-top: 40px;
+        }
+        .math { font-style: italic; color: #2980b9; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Technical Impact Report: SERT S348T</h1>
+    <p>Structural Analysis & Binding Affinity Prediction</p>
+</header>
+
+<div class="container">
+    <h2>1. Executive Summary</h2>
+    <p>This report documents the structural impact of the <strong>S348T mutation</strong> within the Human Serotonin Transporter (SERT). Key findings indicate that while the global architecture remains stable, the introduction of a methyl group at residue 348 creates a "Methyl Clash" within the S1 binding pocket, likely reducing affinity for ligands such as Escitalopram.</p>
+
+    <h2>2. Global Structural Baseline</h2>
+    <p>Alignment metrics confirm the mutation maintains high global integrity with minimal backbone distortion.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Comparison</th>
+                <th>RMSD (Å)</th>
+                <th>Aligned Pairs</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Wild-Type vs. Mutant (#2)</td>
+                <td>0.030</td>
+                <td>544</td>
+                <td>2890.1</td>
+            </tr>
+            <tr>
+                <td>Wild-Type vs. Mutant (#3)</td>
+                <td>0.005</td>
+                <td>542</td>
+                <td>2901.7</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h2>3. Interaction Metrics (Region 340-360)</h2>
+    <div class="stats-grid">
+        <div class="stat-card">
+            <span class="stat-label">H-Bonds (TM6)</span>
+            <span class="stat-value">102</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Atomic Contacts</span>
+            <span class="stat-value">154</span>
+        </div>
+        <div class="stat-card">
+            <span class="stat-label">Analysis Radius</span>
+            <span class="stat-value">4.0 Å</span>
+        </div>
+    </div>
+    <p>The high contact density (154 contacts) suggests an occluded environment where side-chain bulk significantly impacts ligand seating.</p>
+
+    <h2>4. The "Methyl Clash" Mechanism</h2>
+    <div class="logic-box">
+        <strong>Binding Affinity Prediction:</strong> The transition from Serine to Threonine introduces a <span class="math">γ-methyl</span> group. 
+        In analogous residues (e.g., S438T), this localized increase in bulk results in up to a 175-fold decrease in affinity (increased <span class="math">K<sub>i</sub></span>) 
+        due to steric interference with the ligand's amine tail or ring system.
+    </div>
+
+    <h2>5. Computational Refinement Workflow</h2>
+    <p>The following script is designed for localized relaxation of the mutation site within ChimeraX:</p>
+    <div class="code-block">
+# Preparation and Charge Assignment
+addh; addcharge
+
+# Localized Selection (TM6)
+select :340-360
+
+# Structural Constraints
+freeze ~:340-360
+
+# Energy Minimization
+minimize nsteps 100 cgsteps 100 stepsize 0.02 interval 10
+
+# Validation
+hbonds :340-360 intramodel true reveal true
+    </div>
+
+    <h2>6. Operational Status</h2>
+    <ul>
+        <li><strong>Structural Verification:</strong> COMPLETED [cite: analysis_report.html]</li>
+        <li><strong>Interaction Mapping:</strong> COMPLETED [cite: analysis_report.html]</li>
+        <li><strong>Minimization/Affinity Calculation:</strong> PENDING (Awaiting simulation results)</li>
+    </ul>
+
+    <div class="footer">
+        Generated on 2026-05-01 | LabMind Structural Intelligence
+    </div>
+</div>
+
+</body>
+</html>

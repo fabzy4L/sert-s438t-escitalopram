@@ -1,0 +1,21 @@
+ESCITALOPRAM LIGAND PDBQT PREPARATION
+==================================================
+
+Option A — OpenBabel (recommended, free):
+  Install: https://openbabel.org/wiki/Get_Open_Babel
+  Run:
+    obabel output/escitalopram.pdb -O output/escitalopram.pdbqt
+           --partialcharge gasteiger -h
+
+Option B — conda + meeko (most accurate):
+  conda install -c conda-forge rdkit
+  pip install meeko
+  mk_prepare_ligand.py -i output/escitalopram.pdb
+                       -o output/escitalopram.pdbqt
+
+Option C — Use pre-prepared PDBQT from ZINC:
+  Search 'escitalopram' at https://zinc.docking.org
+  Download PDBQT directly.
+
+Once prepared, place the file at:
+  C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\output\escitalopram.pdbqt

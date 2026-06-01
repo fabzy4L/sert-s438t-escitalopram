@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChimeraX Analysis Report: SERT S348T</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; line-height: 1.6; color: #333; max-width: 900px; margin: 0 auto; padding: 20px; background-color: #f4f7f6; }
+        header { background: #2c3e50; color: white; padding: 20px; text-align: center; border-radius: 8px 8px 0 0; }
+        section { background: white; padding: 20px; border-radius: 0 0 8px 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); margin-bottom: 20px; }
+        h2 { color: #2c3e50; border-bottom: 2px solid #3498db; padding-bottom: 10px; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #3498db; color: white; }
+        tr:hover { background-color: #f1f1f1; }
+        .stat-box { display: flex; justify-content: space-around; margin-top: 20px; }
+        .stat-item { background: #ecf0f1; padding: 15px; border-radius: 5px; text-align: center; flex: 1; margin: 0 10px; border-top: 4px solid #3498db; }
+        .stat-value { font-size: 1.5em; font-weight: bold; color: #2980b9; }
+        .footer { text-align: center; font-size: 0.8em; color: #7f8c8d; margin-top: 20px; }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Structural Analysis Report</h1>
+    <p>SERT Wild-Type vs. S348T Mutation</p>
+</header>
+
+<section>
+    <h2>1. Overview</h2>
+    <p>This report details the structural consequences of the <strong>S348T mutation</strong> in the Human Serotonin Transporter (SERT). Using Matchmaker alignment and interaction mapping, we compared the Wild-Type structure against computational mutant models.</p>
+
+    <h2>2. Structural Alignment (RMSD)</h2>
+    <p>Structural similarity was measured via backbone alignment of 540+ atom pairs.</p>
+    <table>
+        <thead>
+            <tr>
+                <th>Model Comparison</th>
+                <th>RMSD (Å)</th>
+                <th>Pairs</th>
+                <th>Score</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>WT (#1) vs. Mutant (#2)</td>
+                <td>0.030</td>
+                <td>544</td>
+                <td>2890.1</td>
+            </tr>
+            <tr>
+                <td>WT (#1) vs. Mutant (#3)</td>
+                <td>0.005</td>
+                <td>542</td>
+                <td>2901.7</td>
+            </tr>
+        </tbody>
+    </table>
+    <p><em>Conclusion: The mutation maintains high global structural integrity.</em></p>
+
+    <h2>3. Interaction Analysis</h2>
+    <p>Focusing on the mutation site at Residue 348 and the surrounding helix (340-360).</p>
+    <div class="stat-box">
+        <div class="stat-item">
+            <div class="stat-label">Hydrogen Bonds</div>
+            <div class="stat-value">102</div>
+            <div class="stat-desc">(Region 340-360)</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-label">Atomic Contacts</div>
+            <div class="stat-value">154</div>
+            <div class="stat-desc">(4.0Å around 348)</div>
+        </div>
+    </div>
+
+    <h2>4. Visual Summary</h2>
+    <ul>
+        <li><strong>Residue 348:</strong> Displayed as spheres to monitor packing density.</li>
+        <li><strong>Region 340-360:</strong> Displayed as sticks to evaluate side-chain orientations.</li>
+        <li><strong>Ligand:</strong> Escitalopram positioned within the central binding pocket.</li>
+    </ul>
+</section>
+
+<div class="footer">
+    Report generated on 2026-05-01 | Data sourced from ChimeraX Log (1.html)
+</div>
+
+</body>
+</html>
