@@ -1,5 +1,5 @@
 ============================================================
-DOCKING BOX VALIDATION — 68P RE-DOCK
+DOCKING BOX VALIDATION - 68P RE-DOCK
 ============================================================
 
 [1] Aligning 5I71 to 5I6Z...
@@ -14,17 +14,25 @@ DOCKING BOX VALIDATION — 68P RE-DOCK
   Proximity result: PASS
 
 [4] Full re-dock (requires OpenBabel + Vina)...
-  Running Vina (C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\scripts\vina.exe)...
+  (reusing previous docking run)
   Best re-dock affinity: -8.313 kcal/mol
   Computing heavy-atom RMSD vs crystal pose...
-  RMSD best pose vs crystal: 6.632 A  [FAIL (<2.0 A)]
+  RMSD best pose vs crystal: 1.515 A  [PASS (<2.0 A)]
 
 ============================================================
 SUMMARY
 ============================================================
   Box proximity (centroid within grid): PASS
-  Re-dock RMSD < 2.0 A:                 FAIL  (6.632 A)
+  Re-dock RMSD < 2.0 A:                 PASS  (1.515 A)
   Re-dock best affinity:                -8.313 kcal/mol
 
-  Reference pose: C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\output\68P_crystal_reference.pdb
-  Full report:    C:\Users\Fabian Alvarez-Primo\Documents\Github\DATA_ANALYTICS\bioinformatics\python_bio\Receptor_Design\RECEPTOR_DESIGN\output\validation_report.txt
+  Reference pose: output/68P_crystal_reference.pdb
+  Full report:    output/validation_report.txt
+
+  NOTE: regenerated after fixing a last-pose-wins parsing bug in
+  get_ligand_coords_by_name() -- struct.get_atoms() iterated every MODEL in
+  the 5-pose docked PDBQT into a plain dict keyed by atom name, so pose 5
+  (worst-ranked) silently overwrote pose 1, and the RMSD previously reported
+  (6.632 A) was actually pose 5's RMSD, not pose 1's. Restricting to
+  struct[0] fixes this. No new Vina run was needed: the top pose already in
+  68P_redock.pdbqt passes once graded correctly.

@@ -179,11 +179,20 @@ def parse_best_affinity(log):
 
 # ── 6. RMSD between two PDB files (heavy atoms) ───────────────────────────
 def get_ligand_coords_by_name(pdb_path):
-    """Return dict of {atom_name: coords} for heavy atoms only."""
+    """
+    Return dict of {atom_name: coords} for heavy atoms in the first MODEL
+    only. A multi-MODEL PDBQT (Vina's num_modes output) repeats the same
+    atom names once per pose — struct.get_atoms() iterates every model, so
+    without restricting to struct[0] later (worse-ranked) poses silently
+    overwrite pose 1 in this dict, and RMSD ends up graded against the
+    worst pose instead of the best. Files with a single implicit model
+    (the crystal reference, no MODEL/ENDMDL records) are unaffected: BioPython
+    still gives them model id 0.
+    """
     parser = PDBParser(QUIET=True)
     struct = parser.get_structure("lig", str(pdb_path))
     coords = {}
-    for atom in struct.get_atoms():
+    for atom in struct[0].get_atoms():
         if atom.element not in ("H", None):
             coords[atom.get_name().strip()] = atom.get_vector().get_array()
     return coords
