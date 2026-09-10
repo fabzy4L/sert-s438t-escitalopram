@@ -13,3 +13,13 @@ rdkit          # install via conda: conda install -c conda-forge rdkit
 # Optional — MD / extended analysis
 # mdtraj        # pip install mdtraj
 # openmm        # conda install -c conda-forge openmm
+
+# md/scripts/ (Phase 4 MD pipeline, docs/research/FUTURE_WORK.md) + tests
+pytest>=7.4
+MDAnalysis>=2.6   # trajectory loading, RMSF, pip install MDAnalysis
+# gmx (GROMACS, GPU build): install separately, not pip-installable —
+# see sibling project psilocin-5ht2a/docs/setup.md for the CUDA source-build notes
+# fpocket (pocket volume, md/scripts/05_analysis.py): optional, not pip-installable —
+# conda install -c bioconda fpocket, or build from https://github.com/Discngine/fpocket
+# CHARMM-GUI (charmm-gui.org) and CGenFF (cgenff.umaryland.edu): free web
+# services, interactive only — not scriptable, see FUTURE_WORK.md Phase 4

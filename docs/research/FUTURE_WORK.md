@@ -70,6 +70,15 @@ Each phase below builds directly on the previous one.
 
 ## Phase 4 — MD Simulation + MM-PBSA (Primary Publication Result)
 
+**Pipeline status: scaffolded, not yet executed.** `md/scripts/` (staged
+WT+S438T import/minimize/equilibrate/production/analysis pipeline,
+gated the same way `scripts/validation_redock.py` is) and
+`docs/research/MD_METHODOLOGY.md` (design writeup) exist and are covered
+by 42 passing unit tests, but no CHARMM-GUI export, no CGenFF
+parameterization of escitalopram, and no working GROMACS build exist in
+this repo yet -- the steps below are still what needs to happen, in this
+order, before any of the numbers in "Key analyses for paper" are real.
+
 **Goal:** Full dynamic treatment of both complexes; the minimum standard for a computational ΔΔG paper.
 
 **Tools:** GROMACS 2024 (free, GPU-accelerated), CHARMM36m force field, CGenFF for escitalopram
