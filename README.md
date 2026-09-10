@@ -82,6 +82,20 @@ output/
   docking_results_report.txt            Summary with interpretation
   validation_report.txt / structural_audit_report.txt
 
+md/                                     Phase 4 MD pipeline (FUTURE_WORK.md)
+                                         -- scaffolded, not yet executed: no
+                                         CHARMM-GUI/CGenFF export or working
+                                         GROMACS build exists in this repo yet
+  scripts/        staged WT+S438T pipeline: import -> minimize ->
+                  equilibrate -> production -> per-system analysis ->
+                  06_compare_systems.py (the WT-vs-S438T comparison),
+                  see docs/research/MD_METHODOLOGY.md
+  system_prep/    wt/ and s438t/ -- CHARMM-GUI outputs, topology/coordinates
+  analysis/       wt/, s438t/, comparison/ -- RMSF, Na+ coordination,
+                  pocket-volume output (written by md/scripts/)
+
+tests/                                  pytest coverage for md/scripts/ gate logic
+
 docs/
   research/
     S438T_RESEARCH_ARTICLE.md/.html     Primary research article
@@ -89,6 +103,7 @@ docs/
     PLENGE_ALIGNMENT_REVIEW.md/.html    Alignment vs. Plenge (2020) and Andersen (2009)
     2A65_v_5I6Z_Comparison.md           LeuT vs. hSERT structural comparison
     FUTURE_WORK.md                      MD simulation roadmap
+    MD_METHODOLOGY.md                   Phase 4 pipeline design (md/scripts/)
   guides/                               ChimeraX and workflow guides
   archive/                              Working documents and superseded reports
 ```
