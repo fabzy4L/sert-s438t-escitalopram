@@ -89,6 +89,6 @@ S438T (THR438): X.XXX ± 0.XXX kcal/mol  (n=5, exhaustiveness=32)
 
 ## Notes
 
-- **Validation RMSD (6.632 Å)** is not a failure — it reflects a cross-enantiomer comparison (R-citalopram from 5I71 vs S-citalopram receptor 5I6Z). Box centroid (3.92 Å from center, inside 25 Å grid) is the meaningful pass criterion.
+- **Validation RMSD: 1.515 Å — a genuine PASS**, no enantiomer-mismatch caveat needed. The previously reported 6.632 Å figure was a parsing bug in `scripts/validation_redock.py` (`get_ligand_coords_by_name()` iterated every MODEL in the 5-pose docked PDBQT via `struct.get_atoms()`, so pose 5 — the worst-ranked pose — silently overwrote pose 1 before RMSD was computed; fixed by restricting to `struct[0]`). The cross-enantiomer rationalization above was never actually needed: graded correctly, the top pose lands well under the 2.0 Å threshold. Box centroid (3.92 Å from center, inside 25 Å grid) remains correct and unaffected by this bug.
 - **ΔΔG interpretation:** Rigid-receptor Vina cannot reproduce the experimental 320-fold Ki increase (Andersen et al., 2009). The ~−0.2 kcal/mol result is expected for this method. MD simulation would be required to capture desolvation and Na⁺ coordination effects.
 - **OpenBabel PATH** (Windows): `$env:PATH += ";C:\Program Files\OpenBabel-3.1.1"` before running obabel commands.
