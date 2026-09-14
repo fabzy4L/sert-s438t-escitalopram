@@ -14,21 +14,54 @@ Each phase below builds directly on the previous one.
 
 ---
 
-## Phase 1 — Flexible Receptor Docking
+## Phase 1 — Flexible Receptor Docking — DONE (2026-09-14)
 
 **Goal:** Allow key S1 pocket residues to flex during docking, capturing induced-fit at THR438.
 
-**Tools:** AutoDock Vina 1.2.5 (already installed), AutoDockTools or MGLTools (free)
+**Tools used:** AutoDock Vina (python bindings, not the 1.2.5 CLI binary —
+none was available in the environment this actually ran in), and
+`AutoDockTools.MoleculePreparation.AD4FlexibleReceptorPreparation` called
+directly under ADFRsuite's bundled Python 2 (`pythonsh`) —
+`prepare_flexreceptor4.py` (MGLTools) was never actually installed; the
+underlying class it wraps was already available locally and needed no
+new install. See `scripts/prep_flexreceptor.py`.
 
-**Steps:**
-1. Define flexible residues: Y95, D98, T438, S439 (core pharmacophoric contacts)
-2. Split receptor into rigid + flexible PDBQT using `prepare_flexreceptor4.py` (MGLTools)
-3. Run multi-seed docking with `--flex receptor_flex.pdbqt` flag
-4. Compare ΔΔG to rigid baseline
+**What was done:**
+1. Flexible residues Y95, D98, T438/S438, S439 — confirmed present at
+   exactly those numbers in both `receptor_wt_H.pdbqt` and
+   `receptor_s438t_minimized_H.pdbqt`.
+2. Split each receptor into rigid + flexible PDBQT
+   (`scripts/prep_flexreceptor.py`) — verified the existing 25×25×25 Å
+   box already covers all 4 residues' reach (max deviation ~7.4 Å on any
+   axis vs. a 12.5 Å half-width), so no box-enlargement was needed here
+   (unlike the sibling `psilocin-5ht2a` project, which had to enlarge its
+   box for the same class of check).
+3. Multi-seed docking (same 5 seeds as `docking_multiseed.py`:
+   42, 123, 456, 789, 1001) with `Vina.set_receptor(rigid_pdbqt_filename=...,
+   flex_pdbqt_filename=...)` — `scripts/flex_docking_multiseed.py`.
+4. Compared ΔΔG to the rigid baseline.
 
-**Expected improvement:** Pocket can accommodate THR methyl group by minor side-chain adjustment — expected to increase ΔΔG signal modestly.
+**Result:** WT −8.527 ± 0.003 kcal/mol, S438T −8.317 ± 0.014 kcal/mol,
+ΔΔG = **+0.210 kcal/mol** (flexible) vs. **+0.269 kcal/mol** (rigid,
+`output/multiseed_docking_report.txt`). The 0.059 kcal/mol shift is
+statistically real (exceeds 2× the combined SD across both runs, ~0.024
+kcal/mol) — flexibility at these 4 residues did measurably change the
+result — but the ΔΔG got *smaller*, moving further from the ~+3.4
+kcal/mol experimental value, not closer. Practically: a real effect of
+essentially no size relative to the ~16x gap that still needs
+explaining.
 
-**Output:** `output/flexdock_report.txt`, updated Section 3.1 in article
+**Reading:** this does not overturn the "Current Finding" above — it
+reinforces it. Letting the four most obvious pharmacophoric-contact
+residues flex did not recover the experimental effect, which is more
+evidence (not proof) that the mechanism really is in the binding
+*pathway* (Na⁺ coordination, induced-fit access dynamics) rather than
+the final bound-state geometry — the thing no single-endpoint docking
+run, rigid or flexible, can capture. Phase 2 (ensemble/MD) remains the
+next real test.
+
+**Output:** `output/flex_multiseed_docking_report.txt`,
+`output/flex_multiseed_docking_summary.json`.
 
 ---
 

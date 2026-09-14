@@ -1,0 +1,52 @@
+SERT + Escitalopram -- Flexible-Receptor Multi-Seed Docking Results
+AutoDock Vina (python bindings) | exhaustiveness=32 | seeds=[42, 123, 456, 789, 1001] | flex residues: Y95, D98, T438/S438, S439
+======================================================================
+
+SETUP
+  Receptor WT   : receptor_wt_H_rigid.pdbqt + receptor_wt_H_flex.pdbqt
+  Receptor S438T: receptor_s438t_minimized_H_rigid.pdbqt + receptor_s438t_minimized_H_flex.pdbqt
+  Ligand        : escitalopram.pdbqt
+  Box centre    : (33.06, 187.25, 141.04)
+  Box size      : 25 x 25 x 25 A (unchanged -- verified to already cover the flex residues' reach)
+
+----------------------------------------------------------------------
+PER-SEED RESULTS
+
+  WT (SER438)
+  Seed     Best Affinity (kcal/mol)
+  -------- ------------------------
+  42       -8.523
+  123      -8.526
+  456      -8.528
+  789      -8.526
+  1001     -8.531
+
+  S438T (THR438)
+  Seed     Best Affinity (kcal/mol)
+  -------- ------------------------
+  42       -8.331
+  123      -8.309
+  456      -8.297
+  789      -8.320
+  1001     -8.327
+
+----------------------------------------------------------------------
+SUMMARY
+
+  WT (SER438)    : -8.527 +/- 0.003 kcal/mol
+  S438T (THR438) : -8.317 +/- 0.014 kcal/mol
+  Delta-Delta-G  : +0.210 kcal/mol  (S438T - WT, flexible)
+  Rigid Delta-Delta-G (docking_multiseed.py, for comparison): +0.269 kcal/mol
+  Experimental Delta-Delta-G (320-fold Ki increase, Andersen et al. 2009): ~+3.4 kcal/mol (RT*ln(320) at 37C)
+
+  Interpretation:
+  DeltaDeltaG shift (flexible - rigid): -0.059 kcal/mol; combined SD across both runs: 0.024 kcal/mol.
+  That shift (0.059) exceeds 2x the combined SD -- a real, reproducible change, not noise. DeltaDeltaG got smaller (moving away from the experimental gap). Either way, 0.210 kcal/mol remains far short of the ~3.4 kcal/mol experimental value -- this is a real effect of essentially no practical size.
+
+----------------------------------------------------------------------
+NOTE: flexibility at these 4 residues alone does not model explicit
+Na+ coordination chemistry or solvation/desolvation -- both flagged in
+FUTURE_WORK.md as the more likely mechanism (conformational dynamics
+during the binding pathway, not the final bound-state geometry this
+docking approach -- rigid or flexible -- can ever capture). MD (Phase
+2/4) remains the next real test, not further docking variants.
