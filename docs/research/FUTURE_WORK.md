@@ -171,7 +171,19 @@ Assumes part-time work (~10–15 hrs/week), Windows machine, consumer GPU (no HP
 
 ## Dependencies / Environment Notes
 
-- GROMACS: install via WSL2 (Ubuntu) on Windows — significantly easier than native Windows build
+- GROMACS: `bash scripts/build_gromacs.sh` builds a GPU-enabled install
+  inside WSL2 (Ubuntu) on Windows, without needing sudo/apt (toolchain
+  comes from conda). This is a tested recipe, not just `cmake && make` —
+  it works around two real issues: (1) the CUDA toolkit version has to
+  support your specific GPU architecture (Blackwell/RTX 50-series needs
+  CUDA 12.8+; the script defaults to 12.9 and auto-detects your GPU's
+  architecture via `CMAKE_CUDA_ARCHITECTURES=native`), and (2) the final
+  `gmx` link can fail on `undefined reference to cufftDestroy` even
+  though everything compiled — a conda-packaged-CUDA quirk the script
+  detects and retries around automatically. See the script's own header
+  comments, or the sibling `psilocin-5ht2a` repo's
+  `docs/SESSION_HANDOFF_2026-09-10.md` for the full narrative of how this
+  was found.
 - AmberTools: free via conda (`conda install -c conda-forge ambertools`)
 - CGenFF: free web server (https://cgenff.umaryland.edu)
 - CHARMM-GUI: free web server for membrane builder
