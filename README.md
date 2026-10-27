@@ -17,14 +17,27 @@ This work originated from iPSC-based transcriptomic analysis of post-mortem brai
 
 ## Key Result
 
-| Receptor | Residue 438 | Best Docking Affinity (kcal/mol) |
-|:---|:---:|:---:|
-| Wild-Type SERT | Ser | −8.1 |
-| S438T Mutant | Thr | −8.3 |
+Five-seed ensemble docking (AutoDock Vina 1.2.5, exhaustiveness 32, seeds 42 / 123 / 456 / 789 / 1001):
 
-**ΔΔG = −0.2 kcal/mol** — escitalopram maintains high predicted affinity in the rigid-receptor model.
+| Receptor model | Wild-type SERT (Ser438) | S438T mutant (Thr438) | ΔΔG (S438T − WT) |
+|:---|:---:|:---:|:---:|
+| Rigid | −8.575 ± 0.013 | −8.306 ± 0.015 | **+0.269 kcal/mol** |
+| Flexible side chains | −8.527 ± 0.003 | −8.317 ± 0.014 | **+0.210 kcal/mol** |
 
-The experimentally observed 320-fold *K*i increase (Andersen *et al.*, 2009) is **not reproduced**, consistent with the known limitations of rigid-receptor docking: the S438T substitution likely disrupts the dynamic binding pathway rather than the static bound-state geometry. This finding motivates molecular dynamics simulation as the appropriate next step.
+Affinities in kcal/mol, mean ± SD. Sources: `output/multiseed_docking_report.txt`,
+`output/flex_multiseed_docking_summary.json`.
+
+**Docking gets the direction right and the size wrong.** Escitalopram binds the S438T mutant
+more weakly, as observed experimentally, but the experimental 320-fold *K*i increase
+(Andersen *et al.*, 2009) corresponds to roughly +3.4 kcal/mol, about 13× larger than the
+docking ΔΔG. That gap is consistent with the known limits of docking: the S438T substitution
+likely disrupts the dynamic binding pathway rather than the static bound pose, which is why
+molecular dynamics is the next step.
+
+> **Correction (2026-10-27):** an earlier version of this section reported a single-seed run
+> (exhaustiveness 8) with ΔΔG = −0.2 kcal/mol, i.e. the mutant binding *more* strongly. That
+> difference was smaller than the run's own search noise, so its sign was not meaningful; the
+> multi-seed results above supersede it.
 
 ---
 
