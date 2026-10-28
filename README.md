@@ -27,17 +27,22 @@ Five-seed ensemble docking (AutoDock Vina 1.2.5, exhaustiveness 32, seeds 42 / 1
 Affinities in kcal/mol, mean ± SD. Sources: `output/multiseed_docking_report.txt`,
 `output/flex_multiseed_docking_summary.json`.
 
-**Docking gets the direction right and the size wrong.** Escitalopram binds the S438T mutant
-more weakly, as observed experimentally, but the experimental 320-fold *K*i increase
-(Andersen *et al.*, 2009) corresponds to roughly +3.4 kcal/mol, about 13× larger than the
-docking ΔΔG. That gap is consistent with the known limits of docking: the S438T substitution
-likely disrupts the dynamic binding pathway rather than the static bound pose, which is why
-molecular dynamics is the next step.
+Docking predicts the experimental direction: escitalopram binds the S438T mutant more weakly
+in both receptor models. The experimental 320-fold *K*i increase (Andersen *et al.*, 2009)
+corresponds to roughly +3.4 kcal/mol, about 13× the docking ΔΔG. That gap fits what docking can
+see here: the wild-type and S438T poses almost coincide (below), so the substitution likely acts
+on the dynamic binding pathway rather than the bound pose, and that is what the staged
+molecular dynamics pipeline is built to measure.
 
-> **Correction (2026-10-27):** an earlier version of this section reported a single-seed run
-> (exhaustiveness 8) with ΔΔG = −0.2 kcal/mol, i.e. the mutant binding *more* strongly. That
-> difference was smaller than the run's own search noise, so its sign was not meaningful; the
-> multi-seed results above supersede it.
+| Whole transporter | S1 pocket |
+|:---:|:---:|
+| ![hSERT with escitalopram docked in the S1 site](docs/img/sert_overview.jpg) | ![Wild-type and S438T escitalopram poses overlapping in the S1 pocket](docs/img/sert_pocket.jpg) |
+
+*Top-ranked Vina poses. Wild-type in cream, S438T in orange; residue 438 and binding-site
+residues within 5 Å shown. Rendered in PyMOL from `output/docked_wt.pdbqt` and `output/docked_s438t.pdbqt`.*
+
+> **Revision (2026-10-27):** an earlier single-seed run (exhaustiveness 8) gave
+> ΔΔG = −0.2 kcal/mol, within that run's own search noise. The multi-seed results above replace it.
 
 ---
 
